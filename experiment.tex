@@ -1,4 +1,7 @@
 \section{Evaluation}
+We performed a within-subject user study to evaluate performance and user experience of SwiepVR.
+We measure text entry performance by means of words per minute (WPM) rate and uncorrected word error rate (WER) (cf. [5]). UX was evaluated using the usability
+questionnaires UEQ [12] and SUS [4] and some self-made items.
 
 
 \subsection{Hypotheses}
@@ -24,48 +27,39 @@ We think that \textit{Hypothesis 3} holds as SwipeVR offers a tighter integrated
 The controllers in virtual reality are more \textit{expressive}~\cite{card1990design} than mobile phone keyboards.
 
 \subsection{Participants}
-X Y Z
-
-\subsection{Apparatus}
-Gaze keyboard\\
-VR Controller Keyboard
-
-\subsection{Procedure}
-Each participant experimented with all apparatus.
-Counter-balanced.
-Each participant then proceeded for the test, which included 50 trials.
-In 25 of the trials users were instructed to accurately input the phrase (including corrections if necessary) and in the remaining 25 trials participants were instructed to type without correcting the errors.
-The data measured while the users were accurately typing the phrases vs. typing with no error correction were presented as corrected time and error rate and uncorrected accordingly.
-The total number of trials each participant conducted is 180.
-Data including user's actions and timing were logged and no timing or error rate information was visible to the participants during the study.
-At the end of the experiment, participants filled out a questionnaire regarding their experiences with the different text entry methods and their preferences.
-
-\subsection{Data Collection}
-Input stream of insertions, deletion, edits that are analyzed for measures. Session number.
+Fifteen subjects (5 female) participated in the study.
+Each subject took about 30 minutes to complete the study.
 
 \subsection{Phrase Set}
-We selected 50 phrases from a collection of 500 phrases commonly used for text entry evaluations~\cite{mackenzie2003phrase}.
-The corpus doesn't include phrases with punctuation marks.  
-
-We add five phrases with punctuation marks so the evaluation more closely mimics real-life interactions.
+We selected fifty phrases from a collection of five-hundred phrases commonly used for text entry evaluations~\cite{mackenzie2003phrase}.
+To allow for cross-comparison to other text entry methods, the corpus doesn't include phrases with punctuation marks.
 Non-alphanumeric symbols are rarely considered in text input research~\cite{mackenzie2003phrase} even though some punctuations (. - ' ( ) ") are more frequent than the least common English letter (q)~\cite{malikpunctuation}.
-Moreover, the entry systems under evaluation use different interaction technique for punctuation then for characters.
-Thus, this addition more fully tests the transition time between interaction techniques. 
+ 
+SwipeVR allows for the entry of non-alphanumeric symbols using a different interaction technique for words then for punctuation and characters.
+To measure the  we add to the phrase set ten phrases for the user to enter that contain non-alphanumeric symbols.
+We add five phrases with punctuation marks so the evaluation more closely mimics real-life interactions.
+This addition more fully tests the transition time between interaction techniques. 
 
 Copying pre-selected phrase is usually the preferred method for text entry when doing evaluations in a lab setting~\cite{mackenzie2002character, mackenzie2003phrase}.
-Although, entry rates should be regarded differently when the user is composing text instead instead of transcribing prompted phrases.
+Although, copying pre-selected entry rates should be regarded differently from true, ``in the wild'' results when the user is composing text instead of transcribing prompted phrases.
+In particular, reading a pre-selected phrase has a noticalbly different cadence and certainty that is typically not present in natural voice interactions which leads to what we hypothesize could be an optimistic measurement of voice input.
+
 When the user composes text on their own, there could be substantial thinking time ~\cite{shneiderman2000limits} and other considerations that are difficult to measure.
-Thus, sources of variation are present that could confound the  dependent variable.
-We thus those to only use pre-selected phrases and rely on qualitative feedback to develop a holistic understanding for usability.
+We only use pre-selected phrases and rely on qualitative feedback to develop a holistic understanding for usability.
+
+\subsection{Procedure}
+Participants entered a series of phrases from the phrase set.
+One of our metrics is the learnability of the system so we don't give users practice trials before beginning the actual test.
+
+For each user we conduct twelve sequential sessions.
+In each session, a user enters six phrases.
+After entering all the phrases with both input methods, the participant filled out
+a questionnaire regarding their quantitative feedback on the text entry method.
+Finally, subjects were asked for additional comments.
 
 \subsection{Measures}
-We use StreamAnalyzer~\cite{wobbrock2006analyzing} to  analyzes the text input stream logs created by TextTest~\cite{wobbrock2006analyzing} and produces text file output.
-Besides parsing and analyzing batches of XML log files, StreamAnalyzer can also take presented strings and input streams typed directly on the console when run with the -d command line switch.
-
-
 In the field of text entry, several metrics are used to characterize a method's performance ~\cite{wobbrock2007measures,arif2009analysis}.
-Here, we discuss the most common performance metrics that we used to evaluate the  performance of each input devices.  
-
+Here, we discuss the performance metrics we use to evaluate the performance of the input device.  
 
 \subsubsection{Words per Minute}
 Words per minute (~$WPM$) is perhaps the most widely reported empirical measure of
@@ -86,6 +80,23 @@ ER={INF\over \vert T\vert }\times 100\%. \eqno{\hbox{(2)}}
 \]
 
 Where, Incorrect Not Fixed (~$INF$) is the number of unnoticed incorrect characters in the transcribed text.
+
+
+\begin{table}\centering
+\ra{1.3}
+\begin{tabular}{@{}rrrrr@{}}\toprule
+            &             & $SwipeVR$  \\
+\midrule
+$Positioning$     &             & relative        \\
+
+%    Correction Method    & X       & X       & X       &   \checkmark    \\ 
+
+\bottomrule
+\end{tabular}
+\caption{Ontology of input methods.}
+\label{table:usability}
+\end{table}
+
 
 \subsubsection{Subjective }
 we ask the user to evaluate each entry mechanism on a 5-point Likert Scale (Strongly Disagree, Disagree, neutral, Agree, Strongly Agree).
@@ -121,108 +132,87 @@ I would use the input device at a park\\
 I would use the input device to chat (text)\\
 I would use the input device to edit a letter
 
-\subsection{Experiment A: Speed Without Corrections}
-~\cite{william1995theoretical}
+\section{Results}
+\subsection{Word Per Minute}
+The average rate for text entry was 34 WPM.  
 
-\subsection{Experiment B: Learnability}
-We repeated each experiment 5 times each users and measured the delta across sessions to determine the learnaniltiy of the method.
-
-\subsubsection{Experiment C: Error Rate Of Each Device}
-The independent variable in the experiment was the interaction technique used. Dependent variables were time for task completion (dependent on word/phrase length), number of correct characters typed per minute (independent of word/phrase length), number of typing errors. Time for task completion was
-measured automatically by the system, and the number of
-characters in the wordphrase was divided by this value to
-obtain the characters per minute measure. The number of
-errors was recorded manually. Comfort ratings were each on a
-ten-point scale, and were obtained at the beginning of the
-experiment and after each set of trials. 
-
-\subsection{Experiment C: Error Correction Time and Accuracy}
-
-
-
-
-
+\subsection{Error Rate}
+The average error rate for text entry was 4\%.  
 
 \begin{figure}
 \centering
+
 \begin{tikzpicture}
+\pgfplotsset{
+    every axis legend/.append style={
+      at={(0.5,1.03)
+    },
+    anchor=south
+    }
+}
+\pgfplotsset{grid style={dashed,gray}}
+%\pgfplotsset{minor grid style={dashed,red}}
+%\pgfplotsset{major grid style={dotted,green!50!black}}
+
 \begin{axis}[
-    title=Box Plot of Total Error Rate,
-	boxplot/draw direction=y,
-  xtick={1,2,3,4},
-  xticklabels={Speech, Gaze, Mobile, SwipeVR},
+legend columns=-1,
+xlabel=Session,
+ylabel=Words Per Minute (WPM),
+ title style={at={(0.5,0)},anchor=south,yshift=180},
+ title = Learnability of Input Devices,
+ %ytick={0,5,10,15,20},
+ %minor ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
+ xtick={1,2,3,4,5,6,7,8,9,10,11,12},
+ %minor xtick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
+ grid=both,
 ]
+\addplot coordinates
+{
+  (1,23)(2,27)(3,28)(4,32)(5,32)(6,34)(7,33)(8,33)(9,35)(10,32)(11,35)(12,34)
+};
 
-\addplot+[boxplot prepared={
-  lower whisker=2.5,
-  lower quartile=4,
-  median=8.5,
-  upper quartile=12,
-  upper whisker=15}
-]
-coordinates {};
-
-\addplot+[boxplot prepared={
-  lower whisker=2.5, 
-  lower quartile=3,
-  median=8.5, 
-  upper quartile=12,
-  upper whisker=15}
-]
-coordinates {};
-
-\addplot+[boxplot prepared={
-  draw position=3,
-  lower whisker=2.5,
-  lower quartile=4,
-  median=8.5,
-  upper quartile=12,
-  upper whisker=15}
-]
-coordinates {};
-
-\addplot+[boxplot prepared={
-  draw position=4,
-  lower whisker=2.5,
-  lower quartile=4,
-  median=8.5,
-  upper quartile=12,
-  upper whisker=15}
-]
-coordinates {};
-
+\legend{SwipeVR, Speech, Gaze, Mobile}
 
 \end{axis}
 \end{tikzpicture}
 
+%4.7.1 Markers for graph fixing the circle, square, x, triangle overloading
 
-
-	\caption{Total error rate as a function of language and input method.}
-  ~\label{fig:graphErrorRate}
+\caption{
+Graph of learnability for each of the input methods.
+Learning curves for the four tested entry methods.
+Entry rate on each block of 20 sentences in the second pilot.
+Each line is a single participant.
+}~\label{fig:learnability}
 \end{figure}
 
 
+\subsection{Learnability}
+The extrapolated learning curve is shown in Figure~\ref{fig:learnability}.
+A curve is fit according to a power law and allow us to speculate about performance in future sessions.
 
-
-\begin{figure}
-\centering
-	\begin{tikzpicture}[scale=.6]
-
-     	\pie{8/Thinking, 28/Composing, 22/Error Correcting, 42/Editing}[explode=0.1]
-	\end{tikzpicture}
-	\caption{Absolute distance finger moved vs. time vs. buffer.}
-	~\label{fig:distance}
-	\end{figure}
+\subsection{Usability}
+We found that the 
 
 \begin{figure}
 \centering
-	\begin{tikzpicture}[scale=.6]
+  \begin{tikzpicture}[scale=.6]
 
-     	\pie{8/Thinking, 28/Composing, 22/Error Correcting, 42/Editing}[explode=0.1]
-	\end{tikzpicture}
-	\caption{Time proportion of users' time spent entering vs error correcting.}
-	~\label{fig:graphPercenTime}
-	\end{figure}
+      \pie{44/Word entry with thumb not on trackpad, 3/Thumb on trackpad, 29/Between word, 24/Editing}[explode=0.1]
+  \end{tikzpicture}
+  \caption{The majority of time the user was entering a word, their thumb was not on the trackpad.  There was also a delay between when the user was entering words.
+    }
+  ~\label{fig:distance}
+  \end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\columnwidth]{figures/circle}
+  \caption{Sample of a right-handed users's swipes.  Most of the swipes are concetrated in the upper-left quadrant of the circluar trackpad.}
+
+\label{fig:circle}
+
+\end{figure}
 
 \begin{figure}
 \centering
@@ -238,31 +228,18 @@ coordinates {};
 \end{tikzpicture}
 
 
-	\caption{(Bar graph of arm strain, hand strain, neck strain, dizziness/nausea)  Differences between the initial and final subjective comfort ratings for each of the four techniques in the experiment 
+  \caption{(Bar graph of arm strain, hand strain, neck strain, dizziness/nausea)  Differences between the initial and final subjective comfort ratings for each of the four techniques in the experiment 
 }~\label{fig:graphLearning}
 \end{figure}
 
 \begin{figure}
 \centering
 
-	\includegraphics[width=0.9\columnwidth]{figures/sigchi-logo}
+  \includegraphics[width=0.9\columnwidth]{figures/sigchi-logo}
 
-	\caption{(Participants' subjective evaluation of difficulty 
+  \caption{(Participants' subjective evaluation of difficulty 
 }~\label{fig:graphLikert}
 \end{figure}
-
-
-\section{Results}
-
-learning curve and extrapolated learning curve shown in Figure~\ref{fig:learnability}.
-These are fit according to a power law and allow us to speculate about performance in future sessions.
-
-SwipeVR allows for the user to enter text at 34 WPM.
-
-See Table~\ref{tab:tableResults}\\
-See Figure~\ref{fig:graphWPM}\\
-See Figure~\ref{fig:graphErrorRate}\\
-See Figure~\ref{fig:graphPercenTime}\\
 
 \section{Discussion}
 We argue that we have confirmed H1, H2, and H3.
