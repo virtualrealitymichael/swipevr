@@ -2,57 +2,73 @@
 
 \subsection{Challenges of Text Entry in Virtual Reality}
 
-An average person can type between 38 to 40 words per minute, thanks to the dexterity of our fingers, the haptic feedback from the physical keyboards, and visual feedback on the display.    In the context of virtual reality, it is often not an option to use a physical keyboard.  We are usually not sitting down and it is hard to switch between the VR controllers and a physical keyboard, further complicated by the fact that we cannot see the keyboard in VR. It is desirable to be able to type with existing VR input devices, so we don’t have to remove the head gear to type. 
+Text entry using a physical keyboard is a complex interaction that involves the placement of the user's hands, the kinaesthetic feedback of fingers, and the physical constraints of the keyboard~\cite{McGill:2015:DRO:2702123.2702382}.
+Together this interaction is able to create an efficient text entry mechanism.
+
+However, in the context of virtual reality, it is often not possible to use a physical keyboard.
+Additionally, it is desirable to be able to type with existing virtual reality specific input devices, so the user doen't have to remove the head-mounted display to type. 
+In this next section we explore the challenges of text in virtual reality.
 
 \subsubsection{Latency in Visual Feedback}
 Typing is complex interaction that requires a high-bandwidth feedback loop~\cite{McGill:2015:DRO:2702123.2702382}.
 Latency is a barrier in achieving a seamless interaction between the real and virtual~\cite{leedesigning}.
 
-In virtual reality, latency is the time between movement of the user's head and the updated image being displayed on the screen.  
-This includes time includes the times for fusion, image transmission,
-rendering, sensor response and display response.
+In virtual reality, latency is the time between movement of the and the updated image being displayed on the screen.  
+This pipeline includes the times for fusion, image transmission, rendering, sensor response and display response.
 This is commonly referred to as the \textit{motion-to-photon} latency.
 
-To achieve a genuine sense of presence~\cite{schuemie2001research} in virtual reality, the total \textit{motion-to-photon} latency must be less than 20 milliseconds~\cite{jerald2009relating,jerald2010scene,bailey2004latency} for head movement.
+To achieve a genuine sense of presence~\cite{schuemie2001research} in virtual reality, the total \textit{motion-to-photon} latency must be less than 20 milliseconds~\cite{jerald2009relating,jerald2010scene,bailey2004latency}.
 Some existing systems have a latency as high as 80 milliseconds ~\cite{lincoln2016motion,dallaire2016animated}.
 
-Touch-based interactions need even tighter tolerances on latency compared to head movement described above.
+Compared to head movement, touch-based interactions need even tighter tolerances on latency.
 Research on touchscreens finds that for a user to perceive display elements as naturally being affected by touch, there is a perceptual floor between 2  and 11 milliseconds below which users do not notice lag~\cite{Jota:2013:FFE:2470654.2481317,Ng:2012:DLD:2380116.2380174}.
-Further, it is found that latencies down to 2.38 milliseconds are required to alleviate user perception when dragging~\cite{Jota:2013:FFE:2470654.2481317,Ng:2012:DLD:2380116.2380174}.
+Further, for dragging interactions, a latency of 2.38 milliseconds is required to give the perception of a natural interaction~\cite{Jota:2013:FFE:2470654.2481317,Ng:2012:DLD:2380116.2380174}.
 
-\subsubsection{Proprioception}
-The most prominent problem for a traditional keyboard in a virtual environment setting is that the user cannot see the actual keyboard that he or she is using or his own finger.
+\subsubsection{Limited Proprioception}
 Manipulation in virtual reality is difficult because users must do without the haptic contact with keyboard buttons they rely on in the real world to orient themselves.
+Interactions involving the body and the external world become difficult.
+For example, even the simple task of placing the finger on the correct key can become difficult given the lack of proprioceptive sensations in virtual reality.
 
-\subsubsection{Muscle Fatigue and Dexterity}
-
+\subsubsection{Reduced Precision}
 Haptic feedback and physical constraints in real world input devices help to define interactions. 
 Fine-grained control is difficult in virtual reality and restricts users to the coarse manipulation of virtual objects.
 Input devices that excluded the use of the fingers are slower~\cite{Zhai:1996:IMG:238386.238534}.  
-Midair interactions are prone to fatigue and lead to a feeling
-of heaviness in the upper limbs~\cite{Hincapie-Ramos:2014:CEM:2556288.2557130}, commonly known as the \textit{gorilla arm effect}.
 
 \subsection{Initial Experimentation}
 
-Our exploration of VR input methods started by building a few prototypes and asking 3-5 users to type a few sentences with the prototyping.  
-The users was given little to no instruction about how the input device worked.
-The goals of this process was to explore the performance potential of each input device and to investigate if users could understand the visual interface.
-We record how long the input took, their understanding of the input device, and their other feedback.
+Our exploration of virtual reality input methods starts by building a few prototypes.
+With each prototype, we ask 3 to 5 users to type a few sentences.  
+For each test we give little to no instruction about how the input method works and try to let the user interact with it naturally.
+The goals of this prototyping process is to explore the performance potential of each input device and to investigate if users could understand the visual interface.
+We record typing speeds, their understanding of the input device, and their verbal feedback.
 
 \subsection{Design \#1 - Gaze Input}
-Most VR apps today use gazing as an input method.  A virtual keyboard is presented in VR, and users type a letter by gazing at the desired key and tapping on the gear or controller.  Not only did the users find the process slow, but it also causes nausea as they tap the head gear. 
-The user can type about 10 words per second. [CHECK]  
+Many virtual reality apps today use a gaze keyboard for text entry~\cite{netflix_app_for_oculus}.
+A virtual keyboard is presented in virtual reality.
+The users types a letter by gazing at the desired key and tapping on a button located on the side of the head mounted display.
+Users find the process slow and the motion of the head with the fixed keyboard can causes nausea and dizziness~\cite{atienza2016interaction}.
+We found users type around 10 words per minute using this method.
 
 \subsection{Design \#2 - Drumming}
-Google models typing as drumming.  Users use the VR controllers as drumsticks; typing a character means hitting the right drum among the set of 26 drums laid out like a keyboard. Users found that it was fun initially, but soon discovered that it is very hard to hit the right key.   The user can type about 10 words per second. [CHECK!!!]
-It is also easy to get tired. 
-Both Designs \#1 and \#2 support the use of fingers touching a physical device in text entry. 
+Google models typing as drumming~\cite{google_drums}.
+Controllers in the real world are mapped to drum sticks in the virtual world.  
+Typing a character means hitting one of 26 drums laid out like a keyboard.
+Users find it fun.
+It could be difficult to hit the correct key and the constant arm movement some users found to be strenuous.
+We found users type around 20 words per minute using this method.
 
 \subsection{Design \#3 - External Camera}
 
-We next explore the use of a virtual keyboard on a touchpad, the input method used on mobile phones today.  To address the problem that we cannot see our fingers in virtual reality, we experimented with mixed reality (augmented plus virtual) with a camera.  Our prototype points the front facing camera on the head mounted display points at the mobile keyboard, and streams the view of our fingers and the keyboard into the virtual environment. 
+We next explore the use of a virtual keyboard on a touchscreen, the input method used on mobile phones today.
+To address the problem that we cannot see our fingers in virtual reality, we experimented with mixed reality (augmented plus virtual) with a camera.
+Our prototype points the front facing camera on the head mounted display points at the mobile keyboard, and streams the view of our fingers and the keyboard into the virtual environment. 
 
-The goal of this prototype is to investigate how latency and presence, particular of the fingers, affect performance.  We found that the latency is an inhibitor to fast input.  Our fingers are so fast that we can only see where our fingers were.  What we see is constantly wrong and just makes it even harder to type.  This prototype demonstrates how challenging the visual latency is for typing. 
+The goal of this prototype is to investigate how latency and presence, particular of the fingers, affect performance.
+We found that the latency is an inhibitor to fast input.
+Our fingers are so fast that we can only see where our fingers were.
+What we see is constantly wrong and just makes it even harder to type.
+This prototype demonstrates how challenging the visual latency is for typing. 
+We found users type around 10 words per minute using this method.
 
 \subsection{Design \#4 - 26-key Tap}
 \vspace*{.1cm}
