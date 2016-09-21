@@ -1,26 +1,12 @@
 \begin{abstract}
-The lack of proprioception makes it challenging for users to use a real keyboard in virtual reality.
-This paper proposes SwipeVR, a virtual keyboard that requires only a trackpad, which are available in existing VR input devices today.  The key design principles underlying SwipeVR are: (1) Relative positioning: the user's finger is pointing to the same position in a keyboard upon first contact.
-(2) Keybatching with smart correction: the keyboard is partitioned into 8 tiles.  The user does not have to hit the right key, but just the tile that contains the key.
-(3) Intention-based mixed keyboard.  The user can also type on the full keyboard - the intent in the choice of the batched vs full keyboard is automatically inferred.
-This paper performs a user study across the various design choices as well as existing input methods.
-We found that SwipeVR is easy to learn and provides a similar speed to text entry on a mobile phone keyboard.
-
-
-
-We present what we believe is the most efficient and fastest text entry method available for virtual reality.
-SwipeVR strives for simplicity while maintaining good performance.
-For full words, the user gestures on the touch pad of the controller wand to a sector of the keyboard.
-Full access to characters, punctuation, and digits are accessible through a secondary keyboard.
-Error correction and editing are supported with multi-wand gestures.
-The system is able to be learned quickly by beginners and supports eyes-free entry by experts.
-The effort to enter text is comparable to gesture text entry on a mobile phone.
-We conduct a study with X participants where an average text entry speed of Y WPM was observed with an error rate of Z\%.  
-These results show that text entry is similar to that of a mobile phone keyboard but error correction and editing, the most time consuming step, is greatly improved.
+Text input in VR is challenging because of the latency in visual feedback and the lack of proprioception.  Our design Slide, a virtual keyboard that requires only a track pad, is based on 3 concepts: (1) self-relative vectors: to enter a character, the user slides from what is assumed to be the centroid of the keyboard to the key of interest.  (2) directional, with error correction: all keys are grouped in 6 tiles, and the user only has to slide in the direction of the tile containing the key.  A Bayesian word recommender determines the word entered. (3) Intention-based hybrid keyboard: the keyboard automatically switches between the 26-key and 6-tile keyboard based on the user's finger movements.   Our user study suggests that Slide can be learned quickly, and delivers an average text entry speed of Y WPM with an error rate of Z\%.  
 
 
  a
 
+\begin{comment}
+ is able to be learned quickly by beginners and supports eyes-free entry by experts.  The participants are able to type an average text entry speed of Y WPM with an error rate of Z\%.  These results show that text entry is similar to that of a mobile phone keyboard but error correction and editing, the most time consuming step, is greatly improved.
+\end{comment}
 \end{abstract}
 
 \category{H.5.1.}
