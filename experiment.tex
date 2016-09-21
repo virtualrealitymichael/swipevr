@@ -1,25 +1,9 @@
-\section{Evaluation}
+\section{Evaluation of Slide}
 
 \subsection{Participants}
 Fifteen subjects, 5 female and 15 male, participated in the study.
-All were a undergraduate or graduate student.
-All were active users of technology and 
+All were university students and active users of technology.  
 Each subject took about 30 minutes to complete the study.
-
-\subsection{Phrase Set}
-We selected fifty phrases from a collection of five-hundred phrases commonly used for text entry evaluations~\cite{mackenzie2003phrase}.
-Example of phrases from the set are ``video camera with a zoom lens'', ''have a good weekend'', and''what a monkey sees a monkey will do''.
-To allow for cross-comparison to other text entry methods, the corpus doesn't include phrases with punctuation marks.
-Non-alphanumeric symbols are rarely considered in text input research~\cite{mackenzie2003phrase} even though some punctuations (. - ' ( ) ") are more frequent than the least common English letter,  \textit{q}~\cite{malikpunctuation}.
- 
-Slide allows for the entry of non-alphanumeric symbols using a different interaction technique for words then for punctuation and characters.
-To measure the performance of the ``Directions as Key Entries'' design, we add to the phrase set two phrases for the user to enter that contain a proper noun and an abbreviation.
-We add five phrases with punctuation marks so the evaluation more closely mimics real-life interactions.
-This addition more fully tests the transition time between interaction techniques. 
-
-Copying pre-selected phrase is usually the preferred method for text entry when doing evaluations in a lab setting~\cite{mackenzie2002character, mackenzie2003phrase}.
-Although, copying pre-selected entry rates should be regarded differently from true, ``in the wild'' results when the user is composing text instead of transcribing prompted phrases.
-
 
 \subsection{Measures}
 In the field of text entry, several metrics are used to characterize a method's performance ~\cite{wobbrock2007measures,arif2009analysis}.
@@ -45,22 +29,27 @@ ER={INF\over \vert T\vert }\times 100\%. \eqno{\hbox{(2)}}
 
 Where, Incorrect Not Fixed ($INF$) is the number of unnoticed incorrect characters in the transcribed text.
 
+\subsection{Experiment \#1 - 26-Key Slide Keyboard}
 
-\subsection{Experiment \#1 - Deterministic Keyboard}
-In this experiment we test the keyboard for the deterministic input of characters.
-With this keyboard the user slowly slides their finger to the desired key.
-There is no auto-correct used in this mode as the primary use is for words that are not in the language model.
+Our first experiment is to measure the speed at which users can type in uncommon English words.  The user has to slide his finger to the specific keys to enter the characters precisely.  There is no auto-correct used in this mode as the primary use is for words that are not in the language model.  
 
-In this experiment, we presented with the user with two phrases: one that contained a proper noun and one that contained an abbreviation.
-Unlike the above experiment, we did not see effects of learning so did not need multiple evaluation sessions.
+In this experiment, the users were asked to type in two phrases: one that contained a proper noun and one that contained an abbreviation.  We found that the users can enter these phrases with an average entry rate of 12 WPM, with a standard deviation of 1.8.  We observed that practice has no significant effect on improving the speed. 
+12 words per minute is a reasonable input rate, considering that input words are uncommon, and errors in entry cannot be corrected automatically. 
 
-\subsubsection{Results}
-In this experiment the deterministic keyboard the text entry rate is 12 WPM with a standard deviation of 1.8.
 
-\subsection{Experiment \#2 - Standard Keyboard}
-To establish a comparison between Slide and other text entry systems, participants enter a series of phrases from the phrase set that only contains lower case letters.
-One of our metrics is the learnability of the system so we don't give users practice trials before beginning the actual test.
+\subsection{Experiment \#2 - 6-tile Slide Keyboard}
 
+\subsubsection{Phrase Set}
+For this experiment, we selected fifty phrases from a collection of five-hundred phrases commonly used for text entry evaluations~\cite{mackenzie2003phrase}.
+Example of phrases from the set are ``video camera with a zoom lens'', ''have a good weekend'', and''what a monkey sees a monkey will do''.
+To allow for cross-comparison to other text entry methods, the corpus doesn't include phrases with punctuation marks.
+Non-alphanumeric symbols are rarely considered in text input research~\cite{mackenzie2003phrase} even though some punctuations (. - ' ( ) ") are more frequent than the least common English letter,  \textit{q}~\cite{malikpunctuation}.
+ 
+Copying pre-selected phrase is usually the preferred method for text entry when doing evaluations in a lab setting~\cite{mackenzie2002character, mackenzie2003phrase}.
+Although, copying pre-selected entry rates should be regarded differently from true, ``in the wild'' results when the user is composing text instead of transcribing prompted phrases.
+
+
+One of our metrics in the experiment is the learnability of the system so we don't give users practice trials before beginning the actual test.
 For each user we conduct twelve sequential sessions.
 In each session, a user enters six phrases.
 %After entering all the phrases with both input methods, the participant filled out
@@ -134,13 +123,12 @@ we ask the user to evaluate each entry mechanism on a 5-point Likert Scale (Stro
 Additionally, users are  interviewed to further understand the their qualitative experience.
 \end{comment}
 
-
-\subsubsection{Results}
-In this experiment, to calculate the steady state average rate for text entry, we discard the first six sessions and find the steady state rate is 34 WPM with a standard deviation of 6.3. The average error rate for text entry was 4\% with a standard deviation of .018.
-
 The collective learning curve is shown in Figure~\ref{fig:learnability}.
 The mean starting rate for all users was 18 WPM.
 Every user improved their WPM rate by at least 20\% from their starting rate.
+To calculate the steady state average rate for text entry, we discard the first six sessions and find the steady state rate is 34 WPM with a standard deviation of 6.3. The average error rate for text entry was 4\% with a standard deviation of .018.
+
+
 
 
 \begin{figure}
@@ -161,7 +149,7 @@ legend columns=-1,
 xlabel=Session,
 ylabel=Words Per Minute (WPM),
  title style={at={(0.5,0)},anchor=south,yshift=180},
- title = Learnability of Input Devices,
+ title = Learnability of Slide,
  %ytick={0,5,10,15,20},
  %minor ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
  xtick={1,2,3,4,5,6,7,8,9,10,11,12},
@@ -208,9 +196,8 @@ ylabel=Words Per Minute (WPM),
 %4.7.1 Markers for graph fixing the circle, square, x, triangle overloading
 
 \caption{
-Graph of learnability for each of the input methods.
-Learning curves for the four tested entry methods.
-Entry rate on each block of 20 sentences in the second pilot.
+Graph of learnability for the 6-tile Slide keyboard.
+Entry rate on each block of 20 sentences.
 Each line is a single participant.
 }~\label{fig:learnability}
 \end{figure}
