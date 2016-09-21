@@ -1,8 +1,10 @@
-\subsection{Design Concepts}
+\section{Design Concepts}
 
-Our goal is to enter text in VR conveniently, accurately, and quickly using existing VR controllers, without a steep learning curve.  Our initial investigation informs us that users find it difficult to hit the right key because of the lack of proprioception, and swiping, though better than tapping, is still slow because of the visual latency.  O
+Our initial investigation informs us that users find it difficult to for the user to accurately tap the correct key.
+We also find that the latency is too long from the physical to the virtual world to support the user in accurately tapping the correct key.
 
-Our design is centered around three main concepts: relative positioning, directional swiping, and mixed keyboard modes, as explained below. 
+
+Our design is centered around three main concepts: relative positioning, directional sliding, and mixed keyboard modes, as explained below. 
 
 \begin{comment}
 
@@ -20,10 +22,50 @@ This method falls prey to specifically to the problem described above: users can
 Thus, 
 \end{comment}
 
+
+\subsection{Directions as Key Entries}
+
+With direction vectors, the time it takes to enter a key is proportional to the distance from the centroid.  Furthermore, the user has to make sure that he has to stop at the right key in each direction.  We optimize the input method further by asking the users to just get the directions right, and rely on error correction techniques to determine the intended word.  Most users are familiar with online error correction on mobile text input. 
+
+We quantize the directions into just 6 intervals: top left, top right, left, right, bottom left, and bottom right.   In another words, the user can think of the keyboard having six tiles: with two tiles representing the left and right halves of each of the three bottom rows.  The user needs only to drag his finger to the appropriate tile.  The layout of the tiles is shown in Figure~\ref{fig:swipeVRLayout}.
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1\columnwidth]{figures/arrows}
+  
+  \caption{The six tiles of the direction-based keyboard.}
+  ~\label{fig:swipeVRLayout}
+\end{figure}
+
+If the letters typed can correspond to multiple words, then the user is offered a choice, starting with the most frequently occurring words.  The user simply has to drag his finger to the intended word. 
+
+This proposal has the advantage that users only have to indicate the direction: the vectors dragged are short for all letters.  The inputs can therefore take a short, constant time, regardless of the distance of the key from the centroid.  It is also relatively easy for users to indicate one of six directions accurately, without visual feedback.  The downside is that there may be a need of error correction due to ambiguous inputs.  By analyzing the dictionary, we found AMBIGUOUS-WORD-RESULTS.
+
+We use a Bayesian word recommender to infer the most probable words among words that correspond to the same tile sequence.  For example, the words ``hello'' and ``jelly'' has the same representation.  
+This recommender algorithm use 2-gram and 3-gram data from Google Books Ngram Viewer\footnote{http://storage.googleapis.com/books/ngrams/books/datasetsv2.html}, part of speech frequency for English dictionary, individual word frequency for the entire English language, and produces a prediction score.
+The word with highest prediction score will be selected as the most probable word.
+
+Characters are not displayed one at a time, but rather the whole word appears all at once, and sometimes with a choice for users to select from, as shown in Figure~\ref{fig:multiword}.
+
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=.4\columnwidth]{figures/multiword}
+  
+  \caption{Users are presented with words represented by the same sequence of tile inputs.}
+  ~\label{fig:multiword}
+\end{figure}
+
+
+
+
 \subsection{Directional Vectors as Key Entries}
 
-The goal of our first design concept is to minimize the need for visual feedback and to  
-compensate for the lack of proprioception.  The idea is to use relative positioning, rather than asking the users to hit absolute positions on the invisible keyboard. Relative movement, instead of absolute movements, have also been found to be beneficial in reducing fatigue~\cite{Hincapie-Ramos:2014:CEM:2556288.2557130} so the user can start the interaction from their current position. 
+To minimize the need for visual feedback and to  
+compensate for the lack of proprioception.  
+The idea is to use relative positioning, rather than asking the users to hit absolute positions on the invisible keyboard. Relative movement, instead of absolute movements, have also been found to be beneficial in reducing fatigue~\cite{Hincapie-Ramos:2014:CEM:2556288.2557130} so the user can start the interaction from their current position. 
 
 We lay out keys of our virtual keyboard exactly as the original keyboard.  Typing a letter involves touching the keyboard, dragging and removing the finger.  The first touch is assumed to hit the centroid of the keyboard, which is the position right between the F and the G keys, independent of where the finger touches the touchpad.  The user then drags the finger to the position of the key of interest.  A trail showing the path of the finger is shown.   This takes advantage of the user’s familiarity of the keyboard.  
 
@@ -37,40 +79,8 @@ With swiping, the finger connects between each pair of consecutive letters.  In 
 With swiping, the worst-case distance traveled for each letter could be the length of the keyboard.  In our case, the worst-case is half the width of the keyboard. 
 \end{enumerate}
 
-\subsection{Directions as Key Entries}
-
-With direction vectors, the time it takes to enter a key is proportional to the distance from the centroid.  Furthermore, the user has to make sure that he has to stop at the right key in each direction.  We optimize the input method further by asking the users to just get the directions right, and rely on error correction techniques to determine the intended word.  Most users are familiar with online error correction on mobile text input. 
-
-We quantize the directions into just 6 intervals: top left, top right, left, right, bottom left, and bottom right.   In another words, the user can think of the keyboard having six tiles: with two tiles representing the left and right halves of each of the three bottom rows.  The user needs only to drag his finger to the appropriate tile.  The layout of the tiles is shown in Figure~\ref{fig:swipeVRLayout}.
-
-\begin{figure}
-  \centering
-
-%  \includegraphics[width=.3\columnwidth]{figures/multiword}
-  
-  \caption{The six tiles of the direction-based keyboard.}
-  ~\label{fig:swipeVRLayout}
-\end{figure}
-
-If the letters typed can correspond to multiple words, then the user is offered a choice, starting with the most frequently occurring words.  The user simply has to drag his finger to the intended word. 
-
-This proposal has the advantage that users only have to indicate the direction: the vectors dragged are short for all letters.  The inputs can therefore take a short, constant time, regardless of the distance of the key from the centroid.  It is also relatively easy for users to indicate one of six directions accurately, without visual feedback.  The downside is that there may be a need of error correction due to ambiguous inputs.  By analyzing the dictionary, we found AMBIGUOUS-WORD-RESULTS.
-
-We use a Bayesian word recommender to infer the most probable words among words that correspond to the same tile sequence.  For example, the words ``hello" and ``jelly" has the same representation.  
-This recommender algorithm use 2-gram and 3-gram data from Google Books Ngram Viewer\footnote{http://storage.googleapis.com/books/ngrams/books/datasetsv2.html}, part of speech frequency for English dictionary, individual word frequency for the entire English language, and produces a prediction score.
-The word with highest prediction score will be selected as the most probable word.
-
-Characters are not displayed one at a time, but rather the whole word appears all at once, and sometimes with a choice for users to select from, as shown in Figure~\ref{fig:multiword}.
 
 
-\begin{figure}
-  \centering
-
-  \includegraphics[width=.3\columnwidth]{figures/multiword}
-  
-  \caption{Users are presented with words represented by the same sequence of tile inputs.}
-  ~\label{fig:multiword}
-\end{figure}
 
 \subsection{Hybrid Keyboards}
 
@@ -89,6 +99,10 @@ In addition, we introduce a few shortcuts for the “delete” and the “space�
   ~\label{fig:example}
 \end{figure*}
 
+
+
+\begin{comment}
+
 \begin{figure}
 \centering
 
@@ -103,18 +117,20 @@ In addition, we introduce a few shortcuts for the “delete” and the “space�
     \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
     \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius) 
       arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
-  	}
-	\end{tikzpicture}
+    }
+  \end{tikzpicture}
 
-	\caption{
+  \caption{
     Controller\\
-	Intent Detection Classifier\\
+  Intent Detection Classifier\\
     triager \\
-	|swipe          |                |\\
+  |swipe          |                |\\
     ngram           deterministic     \\
     selection        letter           \\
 }~\label{fig:systemFlowchart}
 \end{figure}
+\end{comment}
+
 
 \subsection{Informal Evaluation of Alternative Design Choices}
 
