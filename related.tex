@@ -67,12 +67,6 @@ The wide input space for a horizontal spatial mapping but suffers from low throu
 Nenya~\cite{ashbrook2011nenya} uses a finger ring as an input mechanism that is always available.
 It is fast to access, allows analog input, and is socially acceptable by being embodied in a commonly worn item.
 
-Industry has started to standardize around a virtual reality controller.  HTC, Facebook, and Google have all released a virtual reality hardware design.
-Each includes a controller, shown in Figure~~\ref{fig:controllers}.
-They all similar in the they all contain a rotational tracking, a way to track the thumb through either joystick or touchpad, and at least four buttons.
-Vive and Oculus use an absolute tracking system to minimizing sensor drift and to allow for rotational and translational tracking~\cite{hilfert2016low}.
-The Daydream controller, shown in Figure~\ref{fig:controllerDaydream}, in only for a single hand whereas the others have a controller for each hand.
-SwipeVR is implemented using the Vive but could be implemented on the other two.
 
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
@@ -103,33 +97,6 @@ $Error~Rate$			& \%\cite{sppechTBA} & \%		& \%			& \%\\
 \label{table:ontology}
 \end{table*}
 
-\begin{figure}
-  \centering
-	\begin{subfigure}{.4\columnwidth}
-  \includegraphics[width=\textwidth]{figures/controllerVive}
-  \caption{HTC's Vive }\label{fig:controllerVive}
-  \end{subfigure}
-  \\
-  \begin{subfigure}{.4\columnwidth}
-  \includegraphics[width=\textwidth]{figures/controllerOculus}
-  \caption{Facebook's Oculus}\label{fig:controllerOculus}
-  \end{subfigure}
-  \\
-  \begin{subfigure}{.4\columnwidth}
-  \includegraphics[width=\textwidth]{figures/controllerDaydream}
-  \caption{Google's Daydream}\label{fig:controllerDaydream}
-  \end{subfigure}
-  \caption{
-  Industry is standardizing on some of the important components for virtual reality controllers.
-  The three major controllers shown above all contain a way to track the thumb, at least 3 degrees of freedom tracking  (rotational), and at least four buttons.
-  The Vive (\subref{fig:controllerVive}) and the Oculus (\subref{fig:controllerOculus}) use room-scale tracking to give 6 degrees of freedom (rotation and translation).  
-  Many virtual reality systems today are released with a controller for each hand.  
-  The Vive and Daydream (\subref{fig:controllerDaydream}) employ a thumb track pad to capture finger movement.
-  Oculus controller uses joysticks instead.
-  The system described in this paper is implemented using the Vive and could be implemented on the other two.
-  }~\label{fig:controllers}
-
-\end{figure}
 
 
 
