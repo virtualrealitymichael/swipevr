@@ -70,31 +70,41 @@ What we see is constantly wrong and just makes it even harder to type.
 This prototype demonstrates how challenging the visual latency is for typing. 
 We found users type around 10 words per minute using this method.
 
-\subsection{Design \#4 - 26-key Tap}
+\subsection{Design \#4 - 26-Key Tap}
 \vspace*{.1cm}
 \includegraphics[width=.9\columnwidth]{figures/26Tap}
 
-In this experiment, we explore the use of a regular mobile keyboard.  The prototype projects the keyboard and the keys touched onto the virtual environment, and also shows the letters typed in a textbox.  The keys are laid out exactly as a regular mobile keyboard. 
-Aggressive autocorrect algorithm adjusted for typos and phonetic misspelling are applied.
-The advantage of such keyboard is that users do not need to change their interaction with a keyboard at all.  Users are familiar with typing on the mobile device; some even can type with both thumbs.  
+In this experiment, we explore how feedback can be added to a soft keyboard on the mobile phone to make it usable in virtual reality.
+We want to explore the limit of touch typing and muscle memory for a user in a virtual enviroment.
+We build a prototype keyboard for a mobile phone that transmits to the head-mounted display when where the user touches on the keyboard.
+In this way, the user gets feedback where a finger is located on the keyboard with every tap.
+The prototype keyboard is running alongside the standard Android keyboard that includes autocorrect to adjusted for typos and phonetic misspelling.
 
-We noticed an unexpected phenomenon using this prototype.  Even hitting the same key twice is difficult.  Every time a user lifts a finger and lowers the finger, there is a nontrivial chance that the finger has drifted to another key.  Even though the keyboard layout is familiar, and even if error correction has been successful in speeding up text entry on mobile devices, it is hard to enter a sentence correctly.   
+We notice an unexpected phenomenon using this prototype.
+Even hitting the same key twice is difficult.
+Every time a user lifts a finger and lowers the finger, there is a nontrivial chance that the finger has drifted to another key.
+Even though the keyboard layout is familiar, and even error correction is applied, the error rate in this method make it unusable.
+From this experiment, we hypothesize that for fine motor skills, some degree of either visual or haptic feedback is needed.
 
-\subsection{Design \#5 - 26-key Swipe}
+\subsection{Design \#5 - 26-Key Gesture}
 \vspace*{.1cm}
 \includegraphics[width=.9\columnwidth]{figures/26Tap}
 
-Swiping has been shown to be effective in speeding up typing on mobile devices.  Since it does not involve lifting the finger, we postulated that it may also be appropriate for VR.  
-Similar to the 26-key tap, the layout of the mobile QWERTY keyboard is preserved, except tapping is replaced by dragging to specific keys.  We show on the virtual keyboard a trail to indicate where the finger was.  Same autocorrect algorithm is applied.   Swiping works much better than tapping.  However, there are two main problems: 
-\begin{enumerate}
-\item
-Users cannot get the first letter right. 
-\item
-The speed with which the user seeks the appropriate key is much slower than on the soft keyboard on the mobile device because of the lag in visual feedback. 
-HOW FAST? 
-\end{enumerate}
+Gesture keyboards are shown to be effective in speeding up typing on mobile devices.
+Since it does not involve lifting the finger, we postulated that it may also be useful in virtual reality.
+Similar to the 26-key tap, the layout of the mobile QWERTY keyboard is preserved, except tapping is replaced by dragging to specific keys.
+We show the virtual keyboard and gesture trail to indicate where the finger was in the virtual enviroment.
+We find that gestures works better than tapping.  However, there are two main problems: 
 
-In summary, the use of swipe over a conventional keyboard is the best among the choices we explored in the initial phase.  Nonetheless, the speed of XYZ-CHECK is still much lower than desired. 
+Firstly, the users cannot get the first letter right when starting the gesture.  We modify the shape recognition algorithm to as follows.  When the user puts their finger on the mobile screen, it always starts in the center.
+The first inflection point is then discarded and the rest of the input is then done at the mobile phone system level using the standard gesture keyboard.
+
+However, the speed with which the user creates gestures with the head-mounted display on is around three times slower than with the head-mounted display off.
+Even for users that are familiar with gesture keyboards on their mobile phone, it is difficult for them to generate gestures in an efficient manner in virtual reality.
+%Shape, location, and bi-gram modeling is used by SHARK2~\cite{kristensson2004shark} to generate the n-best outputs.
+
+In summary, the use of gesture keyboard over a conventional keyboard is the best among the choices we explored in the initial phase.
+Nonetheless, the speed of around 23 words per minutes is still lower than desired.
 
 
 \begin{comment}
