@@ -1,10 +1,6 @@
 \section{Design Concepts}
 
-Our initial investigation informs us that users find it difficult to for the user to accurately tap the correct key.
-We also find that the latency is too long from the physical to the virtual world to support the user in accurately tapping the correct key.
-
-
-Our design is centered around three main concepts: relative positioning, directional sliding, and mixed keyboard modes, as explained below. 
+We learned from our investigation that it is slow for users to hit the right key on a virtual keyboard due to the lag in visual feedback and limited proprioception.   We thus propose Slide, described below, to speed up text entry by using relative positioning and reducing the need for accuracy through auto-correction. 
 
 \begin{comment}
 
@@ -22,12 +18,26 @@ This method falls prey to specifically to the problem described above: users can
 Thus, 
 \end{comment}
 
+\subsection{Relative Vectors as Key Entries}
+
+To minimize the need for visual feedback, we propose to use relative positioning.  Relative movement, instead of absolute, has also been found to be beneficial in reducing fatigue~\cite{Hincapie-Ramos:2014:CEM:2556288.2557130} so the user can start the interaction from their current position. 
+
+The virtual keyboard in Slide is laid out exactly as the original keyboard, so the users are already familiar with the placement of the keys.   The positioning of the keyboard is relative to the user’s first touch.  No matter where the finger is placed on the touchpad, it is assumed to touch the center of the keyboard, right between the F and G letters.  To enter a letter, the user slides his finger to the key of interest.  As he lifts his finger, the key is entered.  Because of the familiarity of the keyboard layout, the user knows roughly even without looking at the keyboard.  Visual feedback is provided by showing the virtual keyboard and the trail his finger makes.   
+
+Text entry in Slide is different from swiping in several important ways. 
+\begin{enumerate}
+\item
+With swiping, the user enters a word through a continuous movement, connecting pairs of consecutive letters.  Without good visual feedback, the drift in our sense of our finger position accumulates with each letter.   With Slide, every letter input is independent.  The user needs only to slide always from the center of the keyboard to the letter of interest.  
+
+\item 
+As discussed above, we need to discard the first letter entry when we swipe in VR, since users cannot hit the first key correctly.   No such special provision is needed for Slide.
+
+\item
+With swiping, the worst-case distance traveled for each letter is the full length of the keyboard.  The worst case in Slide is just half the length of the keyboard. 
+\end{enumerate}
+
 
 \subsection{Directions as Key Entries}
-
-With direction vectors, the time it takes to enter a key is proportional to the distance from the centroid.  Furthermore, the user has to make sure that he has to stop at the right key in each direction.  We optimize the input method further by asking the users to just get the directions right, and rely on error correction techniques to determine the intended word.  Most users are familiar with online error correction on mobile text input. 
-
-We quantize the directions into just 6 intervals: top left, top right, left, right, bottom left, and bottom right.   In another words, the user can think of the keyboard having six tiles: with two tiles representing the left and right halves of each of the three bottom rows.  The user needs only to drag his finger to the appropriate tile.  The layout of the tiles is shown in Figure~\ref{fig:swipeVRLayout}.
 
 \begin{figure}
   \centering
@@ -38,15 +48,12 @@ We quantize the directions into just 6 intervals: top left, top right, left, rig
   ~\label{fig:swipeVRLayout}
 \end{figure}
 
-If the letters typed can correspond to multiple words, then the user is offered a choice, starting with the most frequently occurring words.  The user simply has to drag his finger to the intended word. 
-
-This proposal has the advantage that users only have to indicate the direction: the vectors dragged are short for all letters.  The inputs can therefore take a short, constant time, regardless of the distance of the key from the centroid.  It is also relatively easy for users to indicate one of six directions accurately, without visual feedback.  The downside is that there may be a need of error correction due to ambiguous inputs.  By analyzing the dictionary, we found AMBIGUOUS-WORD-RESULTS.
+While an improvement over swiping, the technique proposed above still requires the user to slide his finger precisely to the right key, which can be half the length of the keyboard.  We reduce the accuracy required of the user by relying on auto-correction.  We divide the keyboard into 6 tiles, as shown in Figure~\ref{fig:swipeVRLayout}.   The user only needs to slide his finger in the direction of the tile that contains the key of interest.  It is easy to indicate the direction accurately, with a minimum distance traveled for all keys, without visual feedback. 
 
 We use a Bayesian word recommender to infer the most probable words among words that correspond to the same tile sequence.  For example, the words ``hello'' and ``jelly'' has the same representation.  
 This recommender algorithm use 2-gram and 3-gram data from Google Books Ngram Viewer\footnote{http://storage.googleapis.com/books/ngrams/books/datasetsv2.html}, part of speech frequency for English dictionary, individual word frequency for the entire English language, and produces a prediction score.
-The word with highest prediction score will be selected as the most probable word.
-
-Characters are not displayed one at a time, but rather the whole word appears all at once, and sometimes with a choice for users to select from, as shown in Figure~\ref{fig:multiword}.
+The word with highest prediction score will be selected by default as the most probable word.  
+The whole word is presented all at once, instead of a letter at a time, and the user is given the option to choose a less probable word among the possibilities, as shown in Figure~\ref{fig:multiword}.  
 
 
 \begin{figure}
@@ -58,39 +65,11 @@ Characters are not displayed one at a time, but rather the whole word appears al
   ~\label{fig:multiword}
 \end{figure}
 
+\subsection{A Hybrid Keyboard}
 
+While the directional approach is faster, it lacks the precision necessary for entering numbers, punctuations, or words not in the dictionary, such as user names, passwords, and URLs.   Our solution is to use the relative-vector technique as a backup for the direction-based keyboard.  Since both these techniques have the same keyboard layout, the user simply can mix these two entry techniques easily.  Our keyboard automatically detects the user’s intention based on the speed with which the keys are entered. 
 
-
-\subsection{Directional Vectors as Key Entries}
-
-To minimize the need for visual feedback and to  
-compensate for the lack of proprioception.  
-The idea is to use relative positioning, rather than asking the users to hit absolute positions on the invisible keyboard. Relative movement, instead of absolute movements, have also been found to be beneficial in reducing fatigue~\cite{Hincapie-Ramos:2014:CEM:2556288.2557130} so the user can start the interaction from their current position. 
-
-We lay out keys of our virtual keyboard exactly as the original keyboard.  Typing a letter involves touching the keyboard, dragging and removing the finger.  The first touch is assumed to hit the centroid of the keyboard, which is the position right between the F and the G keys, independent of where the finger touches the touchpad.  The user then drags the finger to the position of the key of interest.  A trail showing the path of the finger is shown.   This takes advantage of the user’s familiarity of the keyboard.  
-
-This approach based on relative positioning is different from swiping in several important ways. 
-\begin{enumerate}
-\item
-In the case of swiping, the user has to decide how to hit the first letter correctly.  Here the entry of the first letter is the same as for all subsequent letters.  The first touch defines the center of the keyboard, and the user drags it to the right key for each character.   
-\item
-With swiping, the finger connects between each pair of consecutive letters.  In our case, the user connects the centroid to each key.   Since the users are familiar with the layout of the original keyboard, users can determine the directional vector from the centroid easier than figuring out the vectors between each pair of keys. 
-\item 
-With swiping, the worst-case distance traveled for each letter could be the length of the keyboard.  In our case, the worst-case is half the width of the keyboard. 
-\end{enumerate}
-
-
-
-
-\subsection{Hybrid Keyboards}
-
-While the directional inputs are much faster, but users may wish to type in words not in the dictionary.  Common examples are user names or password entries.  The user also may have to enter numbers, punctuations, special keys etc. 
-
-Our design is to adopt a hybrid keyboard.  Since our optimized “direction-only” keyboard has the same key layout as the original keyboard, we can present a consistent view to the user and let the user switch modes between these two.  
-
-The keyboard switching is implicitly based on the intention of the user.  As the user slows down to hit the specific key, our keyboard automatically infers that the user wishes to control the text entry at the key level. 
-
-In addition, we introduce a few shortcuts for the “delete” and the “space” keys.   Users can double tap the touch screen to indicate delete.  For the space key, the user can click a specific physical button on the controller, such as the “trigger” button on the bottom side of the Vive controller.  We have also experimented automatically inserting a space after a certain timeout period between 150 and 500 ms.  However, we found that users preferred to have the control of when to insert the space themselves.   
+In addition, we introduce a few shortcuts for the frequently used “delete” and “space” keys.   Users can double tap the touch screen to indicate delete.  For the space key, the user can click a specific physical button on the controller, such as the “trigger” button on the bottom side of the Vive controller.  We have also experimented automatically inserting a space after a certain timeout period between 150 and 500 ms.  However, we found that users preferred to have the control of when to insert the space themselves.   
 
 \begin{figure*}
   \centering
@@ -132,22 +111,22 @@ In addition, we introduce a few shortcuts for the “delete” and the “space�
 \end{comment}
 
 
-\subsection{Informal Evaluation of Alternative Design Choices}
-
-Our informal evaluation of this proposed text entry indicated that it is significantly better than any of the methods described in the last section.   To arrive at this proposal, we have tried out many different combinations, all of which have decisively weaker performances.  The combinations we tried include: 
+\subsection{Variations of Slide}
+ 
+To arrive at the proposed design above, we have tried a few other variations, summarized below. 
 
 \begin{enumerate}
 \item
-Six-tile design and tapping with absolute positioning.  The mobile keyboard is divided into the six times, the user only needs to only tap on the right tile, relying on error correction to find the right word.   We found the error rate of this input method to be too high, because users cannot hit the six tiles accurately enough. 
+6-tile design and tapping with absolute positioning.  As in Slide, we divide the keys into 6 tiles, and users are asked to just tap on the corresponding tile.  We found that users still cannot hit the right tile, if we adopt absolute positioning.
 
 \item
-Six-tile design and swiping with absolute positioning.  This design is faster that swiping on a 26-key keyboard, but it is still too slow.  HOW MUCH SLOWER.
+6-tile design and swiping with absolute positioning.  This design is faster that swiping on a 26-key keyboard, but it is still slower than our proposal. 
 
 \item 
-Eight-tile design with two cursors and relatively positioning.  Since most people type with two hands on the keyboard, we experimented introducing two cursors into the proposed design.  We split the keyboard into the left and right half, and the initial positions of the left and right thumbs are assumed to be the centroid of each half.  Instead of having 6 directions for each hand, we simplify it to four directions each (up, down, left,  right).  This can also reduces the number of ambiguous entries. 
+8-tile design with two cursors, and relatively positioning.  Since most people type with two hands on the keyboard, we experimented introducing two cursors into the proposed design.  We split the keyboard into the left and right half, and the initial positions of the left and right thumbs are assumed to be the center of each half.  Instead of sliding to one of 6 directions for each hand, we simplify it to four directions each (up, down, left,  right).  By having 8 rather 6 tiles, this can also reduce the number of ambiguous entries and improve the success of error correction.  
 
-Our informal evaluation of this method quickly pointed out the flaw of this design.  It was too complicated, as the user has to decide which hand to move, and then which of the four directions.  Furthermore, we found that with the one virtual cursor design, the user usually uses the other hand to enter the special but common “delete” and “space” keys etc. 
+Testing it on a few users quickly pointed out the flaw of this design.  It is too complicated, as the user has to decide which thumb to use, and then which of the four directions.  Furthermore, we found that with the original proposal, the user typically uses the other hand to enter the special the special keys.
 \end{enumerate}
 
-Because none of the choices come close to the proposed entry method, our evaluation focuses primarily on understanding the characteristics of that technique. 
+Because none of the variations come close to the proposed entry method, our evaluation below focuses primarily on understanding the characteristics of our proposal. 
 
