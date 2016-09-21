@@ -1,6 +1,9 @@
 \section{Evaluation}
+
 \subsection{Participants}
 Fifteen subjects (5 female) participated in the study.
+All were a undergraduate or graduate student.
+All were active users of technology and 
 Each subject took about 30 minutes to complete the study.
 
 \subsection{Phrase Set}
@@ -20,15 +23,7 @@ In particular, reading a pre-selected phrase has a noticalbly different cadence 
 When the user composes text on their own, there could be substantial thinking time ~\cite{shneiderman2000limits} and other considerations that are difficult to measure.
 We only use pre-selected phrases and rely on qualitative feedback to develop a holistic understanding for usability.
 
-\subsection{Procedure}
-Participants entered a series of phrases from the phrase set.
-One of our metrics is the learnability of the system so we don't give users practice trials before beginning the actual test.
 
-For each user we conduct twelve sequential sessions.
-In each session, a user enters six phrases.
-After entering all the phrases with both input methods, the participant filled out
-a questionnaire regarding their quantitative feedback on the text entry method.
-Finally, subjects were asked for additional comments.
 
 \subsection{Measures}
 In the field of text entry, several metrics are used to characterize a method's performance ~\cite{wobbrock2007measures,arif2009analysis}.
@@ -55,62 +50,97 @@ ER={INF\over \vert T\vert }\times 100\%. \eqno{\hbox{(2)}}
 Where, Incorrect Not Fixed (~$INF$) is the number of unnoticed incorrect characters in the transcribed text.
 
 
-\begin{table}\centering
-\ra{1.3}
-\begin{tabular}{@{}rrrrr@{}}\toprule
-            &             & $SwipeVR$  \\
-\midrule
-$Positioning$     &             & relative        \\
+\subsection{Experiment \#1 - Standard Keyboard}
+To establish a comparison between Slide and other text entry systems, participants entered a series of phrases from the phrase set that only contains lower case letters.
+One of our metrics is the learnability of the system so we don't give users practice trials before beginning the actual test.
 
-%    Correction Method    & X       & X       & X       &   \checkmark    \\ 
+For each user we conduct twelve sequential sessions.
+In each session, a user enters six phrases.
+After entering all the phrases with both input methods, the participant filled out
+a questionnaire regarding their quantitative feedback on the text entry method.
+Finally, subjects were asked for additional comments.
 
-\bottomrule
-\end{tabular}
-\caption{Ontology of input methods.}
-\label{table:usability}
-\end{table}
+\subsection{Experiment \#2 - Deterministic Input}
+In the second experiment we test the secondary keyboard that for the deterministic input of characters.
+The secondary keyboard is activated by slowly sliding their finger to a particular key.
+Deterministic text entry is needed  for certain proper nouns, passwords, and abbreviations.
+
+In this experiment, we presented with the user with two phrases: one that contained a proper noun and one that contained an abbreviation.
+Unlike the above experiment, we did not see effects of learning so did not need multiple evaluation sessions.
+
+
+\begin{figure}
+\centering
+
+\begin{subfigure}{1\columnwidth}
+  \begin{tabular}{@{}p{7cm}p{1cm}@{}}\toprule
+  \textbf{Performance}                      &         \\
+  \midrule
+   The input device is responsive           &     $3.4$   \\
+   The input device worked properly           &     $4.3$   \\
+   The visuals are  smooth and don't freeze       &     $3.7$   \\
+  \bottomrule
+  \end{tabular}
+  \caption{Overcoming latency is a main challenge for high bandwidth tasks in virtual reality. 
+  Users find the input device works properly and is responsive.}
+  \label{fig:performance}
+\end{subfigure}
+
+
+\vspace{4mm} 
+
+\begin{subfigure}{1\columnwidth}
+  \begin{tabular}{@{}p{7cm}p{1cm}@{}}\toprule
+  \textbf{Design}                                 &     \\
+  \midrule
+  I understand how input device works                   &   $3.1$ \\
+  It is easy to learn how to use the input device             &   $3.9$ \\
+  I understand the graphical interface                    &   $3.9$ \\
+  The text and input are clearly visible                  &   $2.7$ \\
+  \bottomrule
+  \end{tabular}
+  \caption{Users agree that they understood how the input device and the graphical interface worked.
+  Some found the text to be not clearly visible.}
+  \label{fig:design}
+\end{subfigure}
+
+
+\vspace{4mm} 
+
+
+\begin{subfigure}{1\columnwidth}
+  \begin{tabular}{@{}p{7cm}p{1cm}@{}}\toprule
+  \textbf{Applicability}                  &           \\
+  \midrule
+  I would use the input device to do a web search &     $3.3$     \\
+  I would use the input device to write a note    &     $2.9$     \\
+  I would use the input device at home        &     $3.2$     \\
+  \bottomrule
+  \end{tabular}
+  \caption{User agreed that the Slide input device could be used to do a web search, write a note, and used at home. }
+  \label{fig:controllerVive}
+\end{subfigure}
+
+  \caption{We ask the user to evaluate the performance, design, ergonomics and applicability of Slide on a 5-point Likert Scale (Strongly Disagree, Disagree, neutral, Agree, Strongly Agree).}
+  
+  \label{table:usability}
+
+\end{figure}
 
 
 \subsubsection{Subjective }
 we ask the user to evaluate each entry mechanism on a 5-point Likert Scale (Strongly Disagree, Disagree, neutral, Agree, Strongly Agree).
 Additionally, users are  interviewed to further understand the their qualitative experience.
 
-\subsubsection{Performance}
-The input device felt responsive\\
-The visuals were smooth and didn't freeze\\
-The input device worked properly\\
-The system was over responsive and showed inputs that I didn't enter\\
-The system was under responsive and didn't showed inputs that I thought I entered
-
-\subsubsection{Design}
-It is easy to understand what to do with the input device\\
-It was easy to learn how to use the input device\\
-The interface was intuitive\\
-This application has a graphical interface pleasant and understandable\\
-The text and input were clearly visible
-
-\subsubsection{Ergonomics}
-I felt arm strain\\
-I felt hand strain\\
-I felt hand Nausea\\
-I felt dizzy when using the system\\
-I felt nauseous when using the system
-
-\subsubsection{Applications}
-I would use the input device to do a web search\\
-I would use the input device to write an email\\
-I would use the input device in public\\
-I would use the input device at home\\
-I would use the input device at a park\\
-I would use the input device to chat (text)\\
-I would use the input device to edit a letter
 
 \section{Results}
 \subsection{Word Per Minute}
-The average rate for text entry was 34 WPM.  
+In the first experiment, to calculate the average rate for text entry, we discard the first six sessions and find the steady state rate is 34 WPM with a standard deviation of 6.3.
+
+In the second experiment with the deterministic keyboard the text entry rate is 12 WPM with a standard deviation of 1.8.
 
 \subsection{Error Rate}
-The average error rate for text entry was 4\%.  
+The average error rate for text entry was 4\% with a standard deviation of .018.
 
 \begin{figure}
 \centering
@@ -139,12 +169,114 @@ ylabel=Words Per Minute (WPM),
  %minor xtick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
  grid=both,
 ]
-\addplot coordinates
+
+\begin{comment}
+\end{comment}
+
+\addplot[opacity=1] coordinates
 {
-  (1,23)(2,27)(3,28)(4,32)(5,32)(6,34)(7,33)(8,33)(9,35)(10,32)(11,35)(12,34)
+(1,19)(2,24)(3,28)(4,32)(5,32)(6,34)(7,33)(8,33)(9,33)(10,32)(11,35)(12,34)
 };
 
-\legend{SwipeVR, Speech, Gaze, Mobile}
+%1
+\addplot[opacity=0.25] coordinates
+{
+(1,12)(2,23)(3,27)(4,25)(5,31)(6,30)(7,33)(8,33)(9,39)(10,31)(11,32)(12,33)
+};
+
+%2
+\addplot[opacity=0.25] coordinates
+{
+(1,24)(2,21)(3,26)(4,24)(5,32)(6,36)(7,33)(8,34)(9,35)(10,35)(11,37)(12,37)
+};
+
+
+%3
+\addplot[opacity=0.25] coordinates
+{
+(1,31)(2,23)(3,27)(4,25)(5,29)(6,45)(7,37)(8,41)(9,36)(10,31)(11,41)(12,33)
+};
+
+%4
+\addplot[opacity=0.25] coordinates
+{
+(1,29)(2,40)(3,42)(4,42)(5,42)(6,44)(7,43)(8,39)(9,42)(10,43)(11,46)(12,48)
+};
+
+
+
+%5
+\addplot[opacity=0.25] coordinates
+{
+(1,9)(2,16)(3,22)(4,19)(5,25)(6,32)(7,26)(8,27)(9,33)(10,23)(11,23)(12,28)
+};
+
+%6
+\addplot[opacity=0.25] coordinates
+{
+(1,27)(2,29)(3,31)(4,32)(5,36)(6,36)(7,38)(8,34)(9,37)(10,35)(11,35)(12,35)
+};
+
+
+%7
+\addplot[opacity=0.25] coordinates
+{
+(1,9)(2,13)(3,20)(4,19)(5,20)(6,23)(7,19)(8,18)(9,27)(10,23)(11,24)(12,25)
+};
+
+
+
+%8
+\addplot[opacity=0.25] coordinates
+{
+(1,11)(2,17)(3,23)(4,26)(5,25)(6,25)(7,19)(8,21)(9,19)(10,23)(11,28)(12,20)
+};
+
+%9
+\addplot[opacity=0.25] coordinates
+{
+(1,18)(2,23)(3,27)(4,25)(5,28)(6,30)(7,33)(8,32)(9,36)(10,31)(11,32)(12,33)
+};
+
+%10
+\addplot[opacity=0.25] coordinates
+{
+(1,26)(2,19)(3,21)(4,25)(5,37)(6,39)(7,36)(8,36)(9,26)(10,40)(11,42)(12,38)
+};
+
+
+
+%11
+\addplot[opacity=0.25] coordinates
+{
+(1,15)(2,23)(3,27)(4,25)(5,31)(6,30)(7,33)(8,33)(9,26)(10,31)(11,32)(12,33)
+};
+
+
+%12
+\addplot[opacity=0.25] coordinates
+{
+(1,19)(2,26)(3,28)(4,22)(5,36)(6,30)(7,34)(8,37)(9,36)(10,31)(11,36)(12,37)
+};
+
+%13
+\addplot[opacity=0.25] coordinates
+{
+(1,7)(2,26)(3,25)(4,23)(5,23)(6,34)(7,29)(8,31)(9,28)(10,31)(11,28)(12,26)
+};
+
+%14
+\addplot[opacity=0.25] coordinates
+{
+(1,11)(2,21)(3,27)(4,25)(5,27)(6,30)(7,33)(8,30)(9,29)(10,31)(11,32)(12,33)
+};
+
+
+%15
+\addplot[opacity=0.25] coordinates
+{
+(1,32)(2,31)(3,37)(4,34)(5,44)(6,38)(7,42)(8,38)(9,32)(10,42)(11,45)(12,38)
+};
 
 \end{axis}
 \end{tikzpicture}
@@ -181,7 +313,7 @@ We found that the
 \begin{figure}
 \centering
 \includegraphics[width=0.5\columnwidth]{figures/circle}
-  \caption{Sample of a right-handed users's swipes.  Most of the swipes are concetrated in the upper-left quadrant of the circluar trackpad.}
+  \caption{Sample of a right-handed users' slides.  Slides are concentrated in the upper-left quadrant of the circular trackpad.}
 
 \label{fig:circle}
 
@@ -189,33 +321,25 @@ We found that the
 
 \begin{figure}
 \centering
+
+
 \begin{tikzpicture}
-\begin{axis}
-% this yields also a 3x4 matrix:
-\addplot3[surf,mesh/rows=3] coordinates {
-(0,0,0) (1,0,0) (2,0,0) (3,0,0)
-(0,1,0) (1,1,0.6) (2,1,0.7) (3,1,0.5)
-(0,2,0) (1,2,0.7) (2,2,0.8) (3,2,0.5)
-};
+\begin{axis}[
+    ybar,
+    bar width=30pt,
+    enlargelimits=0.15,
+    ylabel={Relative comfort rating},
+    symbolic x coords={arm,wrist,hand},
+    xtick=data,
+    ]
+\addplot coordinates {(arm,1.2) (wrist,.3) (hand,1.4)};
 \end{axis}
 \end{tikzpicture}
 
-
-  \caption{(Bar graph of arm strain, hand strain, neck strain, dizziness/nausea)  Differences between the initial and final subjective comfort ratings for each of the four techniques in the experiment 
-}~\label{fig:graphLearning}
+  \caption{
+ Differences between the initial and final subjective comfort ratings.  
+    }
+\label{fig:graphLearning}
 \end{figure}
 
-\begin{figure}
-\centering
-
-  \includegraphics[width=0.9\columnwidth]{figures/sigchi-logo}
-
-  \caption{(Participants' subjective evaluation of difficulty 
-}~\label{fig:graphLikert}
-\end{figure}
-
-\section{Discussion}
-We argue that we have confirmed H1, H2, and H3.
-
-Concerning H1 (SwipeVR faster than gaze), we find there are significant differences between text entry rates of both approaches.
 
