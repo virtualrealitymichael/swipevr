@@ -46,7 +46,7 @@ We record typing speeds, their understanding of the input device, and their verb
 Many virtual reality apps today use a gaze keyboard for text entry~\cite{netflix_app_for_oculus}.
 A virtual keyboard is presented in virtual reality.
 The users types a letter by gazing at the desired key and tapping on a button located on the side of the head mounted display.
-Users find the process slow and the motion of the head with the fixed keyboard can cause nausea and dizziness~\cite{atienza2016interaction}.
+Users find the process slow and the motion of the head with the fixed keyboard can causes nausea and dizziness~\cite{atienza2016interaction}.
 We found users type around 10 words per minute using this method.
 
 \subsection{Design \#2 - Drumming}
@@ -91,7 +91,7 @@ The prototype keyboard is running alongside the standard Android keyboard that i
 We notice an unexpected phenomenon using this prototype.
 Even hitting the same key twice is difficult.
 Every time a user lifts a finger and lowers the finger, there is a nontrivial chance that the finger has drifted to another key.
-Even though the keyboard layout is familiar, and even error correction is applied, the error rate in this method makes it unusable.
+Even though the keyboard layout is familiar, and even error correction is applied, the error rate in this method make it unusable.
 From this experiment, we hypothesize that for fine motor skills, some degree of either visual or haptic feedback is needed.
 
 
@@ -111,17 +111,17 @@ Gesture keyboards are shown to be effective in speeding up typing on mobile devi
 Since it does not involve lifting the finger, we postulated that it may also be useful in virtual reality.
 Similar to the 26-key tap, the layout of the mobile QWERTY keyboard is preserved, except tapping is replaced by dragging to specific keys.
 We show the virtual keyboard and gesture trail to indicate where the finger was in the virtual enviroment, shown in Figure~\ref{fig:gesture}.
-We find that gestures work better than tapping.  
+We find that gestures works better than tapping.  However, there are two main problems: 
 
-However, there are two main problems.  
-Firstly, the users cannot get the first letter right when starting the gesture.  We modify the shape recognition algorithm to discard the positioning of the first touch of the keyboard and the rest of the input is then done at the mobile phone system level using the standard gesture keyboard.
+Firstly, the users cannot get the first letter right when starting the gesture.  We modify the shape recognition algorithm to as follows.  When the user puts their finger on the mobile screen, it always starts in the center.
+The first inflection point is then discarded and the rest of the input is then done at the mobile phone system level using the standard gesture keyboard.
 
 However, the speed with which the user creates gestures with the head-mounted display on is around three times slower than with the head-mounted display off.
 Even for users that are familiar with gesture keyboards on their mobile phone, it is difficult for them to generate gestures in an efficient manner in virtual reality.
 %Shape, location, and bi-gram modeling is used by SHARK2~\cite{kristensson2004shark} to generate the n-best outputs.
 
-In summary, the use of gesture keyboard over a conventional keyboard is the best among the choices we explored in the initial phase.  The typing speed is found to be 
-around 23 words per minutes, which is still lower than desired.
+In summary, the use of gesture keyboard over a conventional keyboard is the best among the choices we explored in the initial phase.
+Nonetheless, the speed of around 23 words per minutes is still lower than desired.
 
 
 \begin{comment}
