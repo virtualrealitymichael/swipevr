@@ -70,13 +70,21 @@ What we see is constantly wrong and just makes it even harder to type.
 This prototype demonstrates how challenging the visual latency is for typing. 
 We found users type around 10 words per minute using this method.
 
+
+\begin{figure}[!htb]
+  \centering
+
+  \includegraphics[width=1\columnwidth]{figures/26-Tap}
+
+  \caption{The 26-Key tap keyboard design.}
+  ~\label{fig:multiword}
+\end{figure}
+
 \subsection{Design \#4 - 26-Key Tap}
-\vspace*{.1cm}
-\includegraphics[width=.9\columnwidth]{figures/26Tap}
 
 In this experiment, we explore how feedback can be added to a soft keyboard on the mobile phone to make it usable in virtual reality.
 We want to explore the limit of touch typing and muscle memory for a user in a virtual enviroment.
-We build a prototype keyboard for a mobile phone that transmits to the head-mounted display when where the user touches on the keyboard.
+We build a prototype keyboard, shown in Figure~\ref{fig:gesture}, for a mobile phone that transmits to the head-mounted display when where the user touches on the keyboard.
 In this way, the user gets feedback where a finger is located on the keyboard with every tap.
 The prototype keyboard is running alongside the standard Android keyboard that includes autocorrect to adjusted for typos and phonetic misspelling.
 
@@ -86,14 +94,23 @@ Every time a user lifts a finger and lowers the finger, there is a nontrivial ch
 Even though the keyboard layout is familiar, and even error correction is applied, the error rate in this method make it unusable.
 From this experiment, we hypothesize that for fine motor skills, some degree of either visual or haptic feedback is needed.
 
+
+\begin{figure}[!htb]
+  \centering
+
+  \includegraphics[width=1\columnwidth]{figures/gesture}
+  
+  \caption{The 26-Key gesture keyboard design.}
+  ~\label{fig:gesture}
+\end{figure}
+
 \subsection{Design \#5 - 26-Key Gesture}
-\vspace*{.1cm}
-\includegraphics[width=.9\columnwidth]{figures/26Tap}
+
 
 Gesture keyboards are shown to be effective in speeding up typing on mobile devices.
 Since it does not involve lifting the finger, we postulated that it may also be useful in virtual reality.
 Similar to the 26-key tap, the layout of the mobile QWERTY keyboard is preserved, except tapping is replaced by dragging to specific keys.
-We show the virtual keyboard and gesture trail to indicate where the finger was in the virtual enviroment.
+We show the virtual keyboard and gesture trail to indicate where the finger was in the virtual enviroment, shown in Figure~\ref{fig:gesture}.
 We find that gestures works better than tapping.  However, there are two main problems: 
 
 Firstly, the users cannot get the first letter right when starting the gesture.  We modify the shape recognition algorithm to as follows.  When the user puts their finger on the mobile screen, it always starts in the center.
