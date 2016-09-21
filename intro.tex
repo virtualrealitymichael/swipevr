@@ -1,31 +1,62 @@
 \section{Introduction}
 
-Virtual reality is a new computing environment, while the primary use is in games and videos, it can be used in many application domains, from education, architectural reviews~\cite{guerreiro2014beyond}, healthcare, large group chats ~\cite{mcnerney1999system}, and data visualization~\cite{abbott2011empire}, exploration of space and other dangerous locations, scientific visualization, manufacturing, journalism, traveling, architecture, shopping.
-As the VR equipment and content improves, we can imagine that VR system can provide a new learning and working environment, much like how the PC has transformed our daily life.
+While the primary use of virtual reality is in games and videos today, it can be used in many application domains, from education, architectural reviews~\cite{guerreiro2014beyond}, healthcare, large group chats ~\cite{mcnerney1999system}, and data visualization~\cite{abbott2011empire}, exploration of space and other dangerous locations, scientific visualization, manufacturing, journalism, traveling, architecture, shopping.
 
 Today's commercial virtual reality systems have relatively primitive input devices.
 The most advanced controller available are the hand-tracked controllers provided by HTC Vive.
 They enable users to interact with the objects in the virtual space, and it includes a trigger and a trackpad style click wheel.
 The Oculus Rift currently uses a game controller, and the Samsung Gear has a couple of buttons on the headset.
 
-This paper studies a very basic form of input in virtual reality environments: text.
-While users do not need to type much in immersive virtual reality environments we find today, text will become more useful as VR matures.
-At the basic level, the application may need you to input parameters: such as your account name and password, or the name of the city that you want to visit.
-Second, text is useful for searching and navigating content.
-For example, you may wish to open a game recommended from a friend - you may know it by its name, or your friend has sent you a textual link.
-You may not know the name, and you may not need to search.
-Or you may wish to type in keywords to search for a friend in a social app, a product in a shopping app, or a patient’s record in a health app.
-Third, you may want to take notes as you navigate the content for yourself or to communicate with your friends.
-Finally, you may want to stay in touch with the actual reality while immersed in the virtual reality.
-You may wish to receive messages and provide prompt replies without leaving the environment.
+This paper studies a very basic form of input in virtual reality environments: text.  There are many uses of text input in virtual reality, from typing in account names, passwords, search items, people you wish to contact, writing notes and chatting with others.    
 
-Many of us have been frustrated with text input on smart TVs. Imagine the common scenario where we wish to show a YouTube video to a friend on the TV in a living room.
-The easiest is to use your phone, find the content, and use screencast to show it on the TV.
-The keyboard entry on a TV is so clumsy that we would rather not search for the content in YouTube on TV and we definitely do not wish to type in the long YouTube page that we have open on our phone.
-Virtual reality is even harder because of the lack of proprioception.
-Today, our solution is to remove our head gear and to find the content on the PC or on the smart phone.
-Having a fast and convenient way of entering text is fundamentally desirable.
+The average typing performance on a regular keyboard was found to be about 60 words per minute\cite{Varcholik}, thanks to the dexterity of our fingers, the haptic feedback from the physical keyboards, and visual feedback on the display.    In the context of virtual reality, it is often not an option to use a physical keyboard.  We are usually not sitting down and it is hard to switch between the VR controllers and a physical keyboard, further complicated by the fact that we cannot see the keyboard in VR. It is desirable to be able to type with existing VR input devices, so we do not have to remove the head gear to type. 
 
-So far, the alternatives have been through gesture, motion controllers, Leap Motion or tangibles, handheld controllers, or relying on a subset of keyboard and mouse commands~\cite{billinghurst1999collaborative}.
+Typing is challenging in virtual reality because of the latency in visual feedback and the lack of proprioception.  The industry standard is to enter text with gaze.  A virtual keyboard is presented in VR, and users type a letter by gazing at the desired key and tapping on the gear or controller.  Not only did the users find the process slow, but it can also causes nausea as they tap the head gear.  The user can type about 7 words per second.   
+
+Entering text via speech is attractive, especially in the immersive virtual reality environment.   However, speech recognition is limited when typing passwords, names, and URLs~\cite{TODO}. 
+The lack of user acceptance is also due to issues such as privacy, the perception of bothering others, the awkwardness of speaking to a machine~\cite{sawhney2000nomadic}.
+Some users find voice as unreliable especially when the accent or ambient sound negatively affect accuracy.
+Other alternatives proposed including using gesture, motion controllers, Leap Motion or tangibles, handheld controllers, or relying on a subset of keyboard and mouse commands~\cite{billinghurst1999collaborative}.
 All these existing solutions, while potentially good for simple tasks, aren't adequate for tasks that requires a greater bandwidth of input~\cite{McGill:2015:DRO:2702123.2702382}.
+
+For those situations where speech input is unacceptable, it is desirable to be able to enter text simply, quickly, and accurately on a touchpad, which is already built into the Vive controllers.   
+
+\subsection{Informal Studies}
+We started our research by trying some  possibilities.
+\begin{enumerate}
+\item
+Gazing.  Users enter keys by gazing at the keys in a virtual keyboard. 
+
+\item
+
+Drumming.  One proposal is to display the keys as a virtual drum kit, and users enter keys by hitting the corresponding drums using the controllers as drumsticks. 
+
+\item
+Augmented reality.  We let users see their fingers and touchpad by streaming the view through a camera into virtual reality.  
+
+\item
+26-key tapping.  Users tap on the soft keyboard on the touchpad is shown as a virtual keyboard in virtual reality.   The users can see the keys being touched in the keyboard, as well as the words being type in a textbox.
+
+\item
+26-key swiping.  Users swipe on the soft keyboard on the touchpad instead.  
+\end{enumerate}
+
+The typing speed that we observed in these trials were in the range of 10-15 words per minute, far below our target performance.  Our initial trials reveal the deficiencies in each of these approaches.
+
+\subsection{Contributions}
+This paper proposes the Slide virtual keyboard, which uses three main design concepts: 
+\begin{enumerate}
+\item
+Self-relative vectors.  To enter a character, the user slides from what is assumed to be the centroid of the keyboard to the key of interest.  
+
+\item
+Directional input, with error correction.  All keys are grouped in 6 tiles, and the user only has to slide in the direction of the tile containing the key.  A Bayesian word recommender determines the word entered. 
+
+\item
+Intention-based hybrid keyboard: the keyboard automatically switches between the 26-key and 6-tile keyboard based on the user's finger movements.  
+\end{enumerate}
+
+Our experiments show that …
+
+In contrast, a recent study shows an average of 53 words per minute when typing on mobile devices\cite{landay}.
 

@@ -14,7 +14,7 @@
 
 % Arabic page numbers for submission.  Remove this line to eliminate
 % page numbers for the camera ready copy
-% \pagenumbering{arabic}
+\pagenumbering{arabic}
 
 % Load basic packages
 \usepackage{balance}  % to better equalize the last page
@@ -62,7 +62,7 @@
 % Paper metadata (use plain text, for PDF inclusion and later
 % re-using, if desired).  Use \emtpyauthor when submitting for review
 % so you remain anonymous.
-\def\plaintitle{SwipeVR: A Fast Keyboard for Virtual Reality}
+\def\plaintitle{Slide: Fast Text Entry for Virtual Reality}
 \def\plainauthor{First Author, Second Author, Third Author,
   Fourth Author, Fifth Author, Sixth Author}
 \def\emptyauthor{}
@@ -116,7 +116,8 @@
 \begin{document}
 
 \title{\plaintitle}
-
+\def\emptyauthor{}
+\begin{comment}
 \numberofauthors{3}
 \author{%
   \alignauthor{Leave Authors Anonymous\\
@@ -132,7 +133,7 @@
     \affaddr{City, Country}\\
     \email{e-mail address}}\\
 }
-
+\end{comment}
 \maketitle
 
 \input{abstract.tex}
