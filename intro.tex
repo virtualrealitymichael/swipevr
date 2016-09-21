@@ -33,9 +33,8 @@ Even though typing is not prevalent in immersive virtual reality, text entry is 
 
 The average typing performance on a regular keyboard was found to be about 60 words per minute\cite{varcholik:textentry}, thanks to the dexterity of our fingers, the haptic feedback from the physical keyboards, and visual feedback on the display.    In the context of virtual reality, it is often not an option to use a physical keyboard.  We are usually not sitting down and it is hard to switch between the VR controllers and a physical keyboard, further complicated by the fact that we cannot see the keyboard in VR.  To avoid having to remove the head gear to type, it is desirable to enter text using existing VR controllers. 
 
-Typing is challenging in virtual reality because of the latency in visual feedback and the lack of proprioception.  The industry standard is to enter text with gaze.  A virtual keyboard is presented in VR, and users type a letter by gazing at the desired key and tapping on the controller.   It was found that the users can typically type at about 7 words per minute.   Entering text via speech is attractive, especially in the immersive virtual reality environment.  Speech may not be suitable when entering names and URLs, especially in public spaces due to privacy issues.  Furthermore, speech often needs to be corrected via text editing.  Other alternatives proposed including using gesture, motion controllers, Leap Motion or tangibles, handheld controllers, or relying on a subset of keyboard and mouse commands~\cite{billinghurst1999collaborative}.
+Typing is challenging in virtual reality because of the latency in visual feedback and the lack of proprioception.  The industry standard is to enter text with gaze.  A virtual keyboard is presented in VR, and users type a letter by gazing at the desired key and tapping on the controller.   It was found that the users can typically type at about 10 words per minute.   Entering text via speech is attractive, especially in the immersive virtual reality environment.  Speech may not be suitable when entering names and URLs, especially in public spaces due to privacy issues.  Furthermore, speech often needs to be corrected via text editing.  Other alternatives proposed including using gesture, motion controllers, Leap Motion or tangibles, handheld controllers, or relying on a subset of keyboard and mouse commands~\cite{billinghurst1999collaborative}.
 All these existing solutions, while potentially good for simple tasks, aren't adequate for tasks that requires a greater bandwidth of input~\cite{McGill:2015:DRO:2702123.2702382}.
-
 
 
 \subsection{Methodology}
@@ -43,7 +42,7 @@ All these existing solutions, while potentially good for simple tasks, aren't ad
 The goal of the paper is to understand how we can enter text simply, quickly, and accurately via the touchpad found in commodity VR controllers today.  
 \begin{enumerate}
 \item
-We started our investigation by exploring existing ideas.  The ideas we explored include   
+We started our investigation by exploring existing ideas:
 \begin{enumerate}
 \item
 Gazing.  Users enter keys by gazing at the keys in a virtual keyboard. 
@@ -61,7 +60,7 @@ virtual reality.
 \item
 26-key swiping.  Users use the touchpad to swipe on the virtual keyboard displayed in the VR. 
 \end{enumerate}
-We built a prototype of each of these systems and tested it informally on a couple of users.  This study revealed major deficiencies in each of these approaches.  
+We built a prototype of each of these systems and tested it informally on 3 to 5 users.  This study revealed major deficiencies in each of these approaches.  
 
 \item
 We propose a new virtual keyboard, Slide, that incorporates the learning from our initial investigation.  It is based on three main design concepts: 

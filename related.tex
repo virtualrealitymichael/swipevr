@@ -71,12 +71,14 @@ The device suffers from low throughput, arm fatigue, and social acceptance.
 Nenya~\cite{ashbrook2011nenya} uses a finger ring as an input mechanism that is always available.
 It is fast to access, allows analog input, and is socially acceptable by being embodied in a commonly worn item.
 
+\begin{comment}
 HTC, Oculus, and Google have each released a virtual reality controller design, shown in Figure~~\ref{fig:controllers}.
 They are similar in that they have rotational tracking, a way to track the thumb through either joystick or touchpad, and at least four buttons.
 They are different in that HTC's Vive and Oculus' Touch controllers use an absolute tracking system to minimizing sensor drift and to allow for rotational and translational tracking~\cite{hilfert2016low}.
 Google's Daydream controller is a unimanual, whereas they other two are bimanual.
 Slide, the text entry system described in this paper, is implemented using the Vive.
 The other two controllers also have the hardware capabilites to support Slide.
+\end{comment}
 
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
@@ -98,8 +100,6 @@ The other two controllers also have the hardware capabilites to support Slide.
 
 &$Speech~\cite{ruan2016speech}$     &$Mobile~\cite{ruan2016speech}$ &$Gaze~\cite{majaranta2006effects}$ &$Slide$    \\
 \midrule
-$WPM$         & 161     & 53      & 7       & 34        \\
-$Error~Rate$      & 2.93\%    & 3.68\%    & .54\%     & 4\%       \\
 %$Positioning$      &       & absolute    & absolute    & relative        \\
 $Hardware$        &microphone   & touch screen  & HMD \& button & controller    \\
 $Keys$          &       & 26+     & 26+     & 6         \\
@@ -110,6 +110,8 @@ $Real-Time~Feedback$  & word      & character   & character   & word        \\
 $Cursor~Mode$       & NA      & NA      & persistent  & snap-to-home    \\
 $Silent$        &       & \checkmark  & \checkmark  &\checkmark     \\
 $Muscle$        & vocal chords  & fingers   & neck      & thumb     \\
+$WPM$         & 161     & 53      & 7       & 34        \\
+$Error~Rate$      & 2.93\%    & 3.68\%    & .54\%     & 4\%       \\
 
 
 \bottomrule
@@ -121,6 +123,7 @@ For comparison, gaze is the main text entry method in use in systems such as Ocu
 \label{table:comparison}
 \end{table*}
 
+\begin{comment}
 \begin{figure}
   \centering
   \begin{subfigure}{.4\columnwidth}
@@ -143,6 +146,6 @@ For comparison, gaze is the main text entry method in use in systems such as Ocu
   }~\label{fig:controllers}
 
 \end{figure}
-
+\end{comment}
 
 
