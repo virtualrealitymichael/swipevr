@@ -3,9 +3,10 @@
 \subsection{Overcomes Latency and Proprioception with Slide}
 
 
-The lack of proproception in virtual reality is compounded by the latency in visual feedback.
+The lack of proprioception in virtual reality is compounded by the latency in visual feedback.
 For a user to be able to steer their finger to a key, the time needed to transmit information from the real to virtual and back to the ``real'' through the  screen and into the eyes of the user is too long.  Other commonly used input methods, such as gesture keyboards, are subject to the same problem.
 Therefore, we devise a method of input that does not depend on a feedback loop that requires the user to reach an absolute position on a keyboard.  
+
 Our technique only depends on relative movement. The user slides the finger on the touchpad to indicate the relative position of the key of interest with respect to the center of the keyboard.  We further reduce the precision required by grouping keys into 6 tiles, and the user only needs to indicate the direction of the tile, again, with respect to the center of the keyboard.
 This reframes the domain of text input from a closed  feedback control problem to an open feedback control problem.
 As such we have created a system that lets users enter text in virtual reality efficiently.  With the help of error correction, and including the time of error correction, users can type at about 34 words per minute with an error rate of 4\%.  Furthermore, when precision is desired, the user can simply go slower and hit the precise keys.  The user can still precisely, which is useful for passwords, etc, at a rate of 12 words per minute. 
