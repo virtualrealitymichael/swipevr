@@ -1,28 +1,24 @@
 \section{Evaluation}
 
 \subsection{Participants}
-Fifteen subjects (5 female) participated in the study.
+Fifteen subjects, 5 female and 15 male, participated in the study.
 All were a undergraduate or graduate student.
 All were active users of technology and 
 Each subject took about 30 minutes to complete the study.
 
 \subsection{Phrase Set}
 We selected fifty phrases from a collection of five-hundred phrases commonly used for text entry evaluations~\cite{mackenzie2003phrase}.
+Example of phrases from the set are ``video camera with a zoom lens'', ''have a good weekend'', and''what a monkey sees a monkey will do''.
 To allow for cross-comparison to other text entry methods, the corpus doesn't include phrases with punctuation marks.
-Non-alphanumeric symbols are rarely considered in text input research~\cite{mackenzie2003phrase} even though some punctuations (. - ' ( ) ") are more frequent than the least common English letter (q)~\cite{malikpunctuation}.
+Non-alphanumeric symbols are rarely considered in text input research~\cite{mackenzie2003phrase} even though some punctuations (. - ' ( ) ") are more frequent than the least common English letter,  \textit{q}~\cite{malikpunctuation}.
  
-SwipeVR allows for the entry of non-alphanumeric symbols using a different interaction technique for words then for punctuation and characters.
-To measure the  we add to the phrase set ten phrases for the user to enter that contain non-alphanumeric symbols.
+Slide allows for the entry of non-alphanumeric symbols using a different interaction technique for words then for punctuation and characters.
+To measure the performance of the ``Directions as Key Entries'' design, we add to the phrase set two phrases for the user to enter that contain a proper noun and an abbreviation.
 We add five phrases with punctuation marks so the evaluation more closely mimics real-life interactions.
 This addition more fully tests the transition time between interaction techniques. 
 
 Copying pre-selected phrase is usually the preferred method for text entry when doing evaluations in a lab setting~\cite{mackenzie2002character, mackenzie2003phrase}.
 Although, copying pre-selected entry rates should be regarded differently from true, ``in the wild'' results when the user is composing text instead of transcribing prompted phrases.
-In particular, reading a pre-selected phrase has a noticalbly different cadence and certainty that is typically not present in natural voice interactions which leads to what we hypothesize could be an optimistic measurement of voice input.
-
-When the user composes text on their own, there could be substantial thinking time ~\cite{shneiderman2000limits} and other considerations that are difficult to measure.
-We only use pre-selected phrases and rely on qualitative feedback to develop a holistic understanding for usability.
-
 
 
 \subsection{Measures}
@@ -30,44 +26,49 @@ In the field of text entry, several metrics are used to characterize a method's 
 Here, we discuss the performance metrics we use to evaluate the performance of the input device.  
 
 \subsubsection{Words per Minute}
-Words per minute (~$WPM$) is perhaps the most widely reported empirical measure of
+Words per minute ($WPM$) is perhaps the most widely reported empirical measure of
 text entry performance~\cite{wobbrock2007measures}:
 
 \[ 
 WPM={\vert T\vert -1\over S}\times 60\times{1\over 5}. \eqno{\hbox{(1)}}
 \]
 
-Where, $S$ is the time in seconds from the first key press to the last, which means that the entry of the first character is never timed, which is the motivation for the "- 1" in the numerator of (1)~\cite{yamada1980historical}.
+Where, $S$ is the time in seconds from the first key press to the last, which means that the entry of the first character is never timed, which is the motivation for the ``- 1'' in the numerator of Equation $1$ ~\cite{yamada1980historical}.
 English words by convention are treated as having five characters~\cite{yamada1980historical}.
 
 \subsubsection{Error Rate}
-Error Rate (~$ER$) is the ratio of the total number of incorrect characters in the transcribed text to the length of the transcribed text:
+Error Rate ($ER$) is the ratio of the total number of incorrect characters in the transcribed text to the length of the transcribed text:
 
 \[
 ER={INF\over \vert T\vert }\times 100\%. \eqno{\hbox{(2)}}
 \]
 
-Where, Incorrect Not Fixed (~$INF$) is the number of unnoticed incorrect characters in the transcribed text.
+Where, Incorrect Not Fixed ($INF$) is the number of unnoticed incorrect characters in the transcribed text.
 
 
-\subsection{Experiment \#1 - Standard Keyboard}
-To establish a comparison between Slide and other text entry systems, participants entered a series of phrases from the phrase set that only contains lower case letters.
-One of our metrics is the learnability of the system so we don't give users practice trials before beginning the actual test.
-
-For each user we conduct twelve sequential sessions.
-In each session, a user enters six phrases.
-After entering all the phrases with both input methods, the participant filled out
-a questionnaire regarding their quantitative feedback on the text entry method.
-Finally, subjects were asked for additional comments.
-
-\subsection{Experiment \#2 - Deterministic Input}
-In the second experiment we test the secondary keyboard that for the deterministic input of characters.
-The secondary keyboard is activated by slowly sliding their finger to a particular key.
-Deterministic text entry is needed  for certain proper nouns, passwords, and abbreviations.
+\subsection{Experiment \#1 - Deterministic Keyboard}
+In this experiment we test the keyboard for the deterministic input of characters.
+With this keyboard the user slowly slides their finger to the desired key.
+There is no auto-correct used in this mode as the primary use is for words that are not in the language model.
 
 In this experiment, we presented with the user with two phrases: one that contained a proper noun and one that contained an abbreviation.
 Unlike the above experiment, we did not see effects of learning so did not need multiple evaluation sessions.
 
+\subsubsection{Results}
+In this experiment the deterministic keyboard the text entry rate is 12 WPM with a standard deviation of 1.8.
+
+\subsection{Experiment \#2 - Standard Keyboard}
+To establish a comparison between Slide and other text entry systems, participants enter a series of phrases from the phrase set that only contains lower case letters.
+One of our metrics is the learnability of the system so we don't give users practice trials before beginning the actual test.
+
+For each user we conduct twelve sequential sessions.
+In each session, a user enters six phrases.
+%After entering all the phrases with both input methods, the participant filled out
+%a questionnaire regarding their quantitative feedback on the text entry method.
+%Finally, subjects were asked for additional comments.
+
+
+\begin{comment}
 
 \begin{figure}
 \centering
@@ -131,16 +132,16 @@ Unlike the above experiment, we did not see effects of learning so did not need 
 \subsubsection{Subjective }
 we ask the user to evaluate each entry mechanism on a 5-point Likert Scale (Strongly Disagree, Disagree, neutral, Agree, Strongly Agree).
 Additionally, users are  interviewed to further understand the their qualitative experience.
+\end{comment}
 
 
-\section{Results}
-\subsection{Word Per Minute}
-In the first experiment, to calculate the average rate for text entry, we discard the first six sessions and find the steady state rate is 34 WPM with a standard deviation of 6.3.
+\subsubsection{Results}
+In this experiment, to calculate the steady state average rate for text entry, we discard the first six sessions and find the steady state rate is 34 WPM with a standard deviation of 6.3. The average error rate for text entry was 4\% with a standard deviation of .018.
 
-In the second experiment with the deterministic keyboard the text entry rate is 12 WPM with a standard deviation of 1.8.
+The collective learning curve is shown in Figure~\ref{fig:learnability}.
+The mean starting rate for all users was 18 WPM.
+Every user improved their WPM rate by at least 20\% from their starting rate.
 
-\subsection{Error Rate}
-The average error rate for text entry was 4\% with a standard deviation of .018.
 
 \begin{figure}
 \centering
@@ -154,8 +155,6 @@ The average error rate for text entry was 4\% with a standard deviation of .018.
     }
 }
 \pgfplotsset{grid style={dashed,gray}}
-%\pgfplotsset{minor grid style={dashed,red}}
-%\pgfplotsset{major grid style={dotted,green!50!black}}
 
 \begin{axis}[
 legend columns=-1,
@@ -170,113 +169,38 @@ ylabel=Words Per Minute (WPM),
  grid=both,
 ]
 
-\begin{comment}
-\end{comment}
-
 \addplot[opacity=1] coordinates
-{
-(1,19)(2,24)(3,28)(4,32)(5,32)(6,34)(7,33)(8,33)(9,33)(10,32)(11,35)(12,34)
-};
-
-%1
+{(1,19)(2,24)(3,28)(4,32)(5,32)(6,34)(7,33)(8,33)(9,33)(10,32)(11,35)(12,34)};
 \addplot[opacity=0.25] coordinates
-{
-(1,12)(2,23)(3,27)(4,25)(5,31)(6,30)(7,33)(8,33)(9,39)(10,31)(11,32)(12,33)
-};
-
-%2
+{(1,12)(2,23)(3,27)(4,25)(5,31)(6,30)(7,33)(8,33)(9,39)(10,31)(11,32)(12,33)};
 \addplot[opacity=0.25] coordinates
-{
-(1,24)(2,21)(3,26)(4,24)(5,32)(6,36)(7,33)(8,34)(9,35)(10,35)(11,37)(12,37)
-};
-
-
-%3
+{(1,24)(2,21)(3,26)(4,24)(5,32)(6,36)(7,33)(8,34)(9,35)(10,35)(11,37)(12,37)};
 \addplot[opacity=0.25] coordinates
-{
-(1,31)(2,23)(3,27)(4,25)(5,29)(6,45)(7,37)(8,41)(9,36)(10,31)(11,41)(12,33)
-};
-
-%4
+{(1,31)(2,23)(3,27)(4,25)(5,29)(6,45)(7,37)(8,41)(9,36)(10,31)(11,41)(12,33)};
 \addplot[opacity=0.25] coordinates
-{
-(1,29)(2,40)(3,42)(4,42)(5,42)(6,44)(7,43)(8,39)(9,42)(10,43)(11,46)(12,48)
-};
-
-
-
-%5
+{(1,29)(2,40)(3,42)(4,42)(5,42)(6,44)(7,43)(8,39)(9,42)(10,43)(11,46)(12,48)};
 \addplot[opacity=0.25] coordinates
-{
-(1,9)(2,16)(3,22)(4,19)(5,25)(6,32)(7,26)(8,27)(9,33)(10,23)(11,23)(12,28)
-};
-
-%6
+{(1,9)(2,16)(3,22)(4,19)(5,25)(6,32)(7,26)(8,27)(9,33)(10,23)(11,23)(12,28)};
 \addplot[opacity=0.25] coordinates
-{
-(1,27)(2,29)(3,31)(4,32)(5,36)(6,36)(7,38)(8,34)(9,37)(10,35)(11,35)(12,35)
-};
-
-
-%7
+{(1,27)(2,29)(3,31)(4,32)(5,36)(6,36)(7,38)(8,34)(9,37)(10,35)(11,35)(12,35)};
 \addplot[opacity=0.25] coordinates
-{
-(1,9)(2,13)(3,20)(4,19)(5,20)(6,23)(7,19)(8,18)(9,27)(10,23)(11,24)(12,25)
-};
-
-
-
-%8
+{(1,9)(2,13)(3,20)(4,19)(5,20)(6,23)(7,19)(8,18)(9,27)(10,23)(11,24)(12,25)};
 \addplot[opacity=0.25] coordinates
-{
-(1,11)(2,17)(3,23)(4,26)(5,25)(6,25)(7,19)(8,21)(9,19)(10,23)(11,28)(12,20)
-};
-
-%9
+{(1,11)(2,17)(3,23)(4,26)(5,25)(6,25)(7,19)(8,21)(9,19)(10,23)(11,28)(12,20)};
 \addplot[opacity=0.25] coordinates
-{
-(1,18)(2,23)(3,27)(4,25)(5,28)(6,30)(7,33)(8,32)(9,36)(10,31)(11,32)(12,33)
-};
-
-%10
+{(1,18)(2,23)(3,27)(4,25)(5,28)(6,30)(7,33)(8,32)(9,36)(10,31)(11,32)(12,33)};
 \addplot[opacity=0.25] coordinates
-{
-(1,26)(2,19)(3,21)(4,25)(5,37)(6,39)(7,36)(8,36)(9,26)(10,40)(11,42)(12,38)
-};
-
-
-
-%11
+{(1,26)(2,19)(3,21)(4,25)(5,37)(6,39)(7,36)(8,36)(9,26)(10,40)(11,42)(12,38)};
 \addplot[opacity=0.25] coordinates
-{
-(1,15)(2,23)(3,27)(4,25)(5,31)(6,30)(7,33)(8,33)(9,26)(10,31)(11,32)(12,33)
-};
-
-
-%12
+{(1,15)(2,23)(3,27)(4,25)(5,31)(6,30)(7,33)(8,33)(9,26)(10,31)(11,32)(12,33)};
 \addplot[opacity=0.25] coordinates
-{
-(1,19)(2,26)(3,28)(4,22)(5,36)(6,30)(7,34)(8,37)(9,36)(10,31)(11,36)(12,37)
-};
-
-%13
+{(1,19)(2,26)(3,28)(4,22)(5,36)(6,30)(7,34)(8,37)(9,36)(10,31)(11,36)(12,37)};
 \addplot[opacity=0.25] coordinates
-{
-(1,7)(2,26)(3,25)(4,23)(5,23)(6,34)(7,29)(8,31)(9,28)(10,31)(11,28)(12,26)
-};
-
-%14
+{(1,7)(2,26)(3,25)(4,23)(5,23)(6,34)(7,29)(8,31)(9,28)(10,31)(11,28)(12,26)};
 \addplot[opacity=0.25] coordinates
-{
-(1,11)(2,21)(3,27)(4,25)(5,27)(6,30)(7,33)(8,30)(9,29)(10,31)(11,32)(12,33)
-};
-
-
-%15
+{(1,11)(2,21)(3,27)(4,25)(5,27)(6,30)(7,33)(8,30)(9,29)(10,31)(11,32)(12,33)};
 \addplot[opacity=0.25] coordinates
-{
-(1,32)(2,31)(3,37)(4,34)(5,44)(6,38)(7,42)(8,38)(9,32)(10,42)(11,45)(12,38)
-};
+{(1,32)(2,31)(3,37)(4,34)(5,44)(6,38)(7,42)(8,38)(9,32)(10,42)(11,45)(12,38)};
 
 \end{axis}
 \end{tikzpicture}
@@ -292,12 +216,10 @@ Each line is a single participant.
 \end{figure}
 
 
-\subsection{Learnability}
-The extrapolated learning curve is shown in Figure~\ref{fig:learnability}.
-A curve is fit according to a power law and allow us to speculate about performance in future sessions.
 
-\subsection{Usability}
-We found that the 
+
+
+\begin{comment}
 
 \begin{figure}
 \centering
@@ -310,6 +232,7 @@ We found that the
   ~\label{fig:distance}
   \end{figure}
 
+
 \begin{figure}
 \centering
 \includegraphics[width=0.5\columnwidth]{figures/circle}
@@ -321,6 +244,7 @@ We found that the
 
 \begin{figure}
 \centering
+\begin{comment}
 
 
 \begin{tikzpicture}
@@ -341,5 +265,6 @@ We found that the
     }
 \label{fig:graphLearning}
 \end{figure}
+\end{comment}
 
 
