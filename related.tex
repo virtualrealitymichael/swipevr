@@ -81,35 +81,49 @@ The other two controllers also have the hardware capabilites to support Slide.
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
 
+
+\begin{comment}
+\begin{tabular}{@{}rrrrcrrrcrrr@{}}\toprule
+& \multicolumn{3}{c}{$w = 8$} & \phantom{abc}& \multicolumn{3}{c}{$w = 16$} &
+\phantom{abc} & \multicolumn{3}{c}{$w = 32$}\\
+\cmidrule{2-4} \cmidrule{6-8} \cmidrule{10-12}
+\end{comment}
+
+
 \begin{table*}\centering
 \ra{1.3}
-\begin{tabular}{@{}rrrrrr@{}}\toprule
-						& $Speech$ 		& $Gaze$ 		& $Mobile$		& $SwipeVR$  \\
-\midrule
-$Positioning$			&				& absolute		& absolute		& relative	  		\\
-$Hardware$ 				&microphone 	& HMD \& button	& touch screen	& controller		\\
-$Keys$ 					&				& 26+			& 26+			& 6					\\
-$Special~Characters$ 	&				& \checkmark	& \checkmark	& \checkmark		\\
-$Granulatiry$ 			&word			& character		& character		& word or character	\\
-$Hands$ 				& 0				& 1				& 1 or 2		& 1					\\
-$Real-Time~Feedback$ 	& word			& character		& character		& word				\\
-$Cursor~Mode$ 			& NA			& persistent	& NA			& snap-to-home		\\
-$Silent$ 				&				& \checkmark	& \checkmark	&\checkmark			\\
-$Muscle$ 				& vocal chords	& neck			& fingers		& thumb			\\
-$WPM$					& \%\cite{sppechTBA} & \%		& \%			& \%\\
-$Error~Rate$			& \%\cite{sppechTBA} & \%		& \%			& \%\\
+\begin{tabular}{@{}rrrrr@{}}\toprule
+&&&\multicolumn{2}{c}{Virtual~Reality} \\
+\cmidrule{4-5}
 
-%    Correction Method		& X 			& X 			& X				& 	\checkmark		\\ 
+&$Speech~\cite{ruan2016speech}$     &$Mobile~\cite{ruan2016speech}$ &$Gaze~\cite{majaranta2006effects}$ &$Slide$    \\
+\midrule
+$WPM$         & 161     & 53      & 7       & 34        \\
+$Error~Rate$      & 2.93\%    & 3.68\%    & .54\%     & 4\%       \\
+%$Positioning$      &       & absolute    & absolute    & relative        \\
+$Hardware$        &microphone   & touch screen  & HMD \& button & controller    \\
+$Keys$          &       & 26+     & 26+     & 6         \\
+$Special~Characters$  &       & \checkmark  & \checkmark  & \checkmark    \\
+$Granulatiry$       &word     & character   & character   & word or character \\
+$Hands$         & 0       & 1 or 2    & 1       & 1         \\
+$Real-Time~Feedback$  & word      & character   & character   & word        \\
+$Cursor~Mode$       & NA      & NA      & persistent  & snap-to-home    \\
+$Silent$        &       & \checkmark  & \checkmark  &\checkmark     \\
+$Muscle$        & vocal chords  & fingers   & neck      & thumb     \\
+
 
 \bottomrule
 \end{tabular}
-\caption{Ontology of input methods.}
-\label{table:ontology}
+\caption{A table comparing speech, mobile keyboard, gaze, and Slide.
+Slide is is the text entry method presented in the paper.
+For comparison, gaze is the main text entry method in use in systems such as Oculus GearVR.
+}
+\label{table:comparison}
 \end{table*}
 
 \begin{figure}
   \centering
-	\begin{subfigure}{.4\columnwidth}
+  \begin{subfigure}{.4\columnwidth}
   \includegraphics[width=\textwidth]{figures/controllerVive}
   \caption{HTC's Vive }\label{fig:controllerVive}
   \end{subfigure}
