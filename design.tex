@@ -48,15 +48,8 @@ With swiping, the worst-case distance traveled for each letter is the full lengt
   ~\label{fig:swipeVRLayout}
 \end{figure}
 
-While an improvement over swiping, the technique proposed above still requires the user to slide his finger precisely to the right key, which can be half the length of the keyboard.  We reduce the accuracy required of the user by relying on auto-correction.  We divide the keyboard into 6 tiles, as shown in Figure~\ref{fig:swipeVRLayout}.   The user only needs to slide his finger in the direction of the tile that contains the key of interest.  It is easy to indicate the direction accurately, with a minimum distance traveled for all keys, without visual feedback. 
-
-We use a Bayesian word recommender to infer the most probable words among words that correspond to the same tile sequence.  For example, the words ``hello'' and ``jelly'' has the same representation.  
-This recommender algorithm use 2-gram and 3-gram data from Google Books Ngram Viewer\footnote{http://storage.googleapis.com/books/ngrams/books/datasetsv2.html}, part of speech frequency for English dictionary, individual word frequency for the entire English language, and produces a prediction score.
-The word with highest prediction score will be selected by default as the most probable word.  
-The whole word is presented all at once, instead of a letter at a time, and the user is given the option to choose a less probable word among the possibilities, as shown in Figure~\ref{fig:multiword}.  
-
-
-\begin{figure}
+While an improvement over swiping, the technique proposed above still requires the user to slide his finger precisely to the right key, which can be half the length of the keyboard.  We reduce the accuracy required of the user by relying on auto-correction.  We divide the keyboard into 6 tiles, as shown in Figure~\ref{fig:swipeVRLayout}.   The user only needs to slide his finger in the direction of the tile that contains the key of interest.  It is easy to indicate the direction accurately, with a minimum distance traveled for all keys, without visual feedback.  Figure~\ref{fig:example} shows how the word ``hello'' is entered using this method. 
+\begin{figure}[htb]
   \centering
 
   \includegraphics[width=.4\columnwidth]{figures/multiword}
@@ -64,12 +57,6 @@ The whole word is presented all at once, instead of a letter at a time, and the 
   \caption{Users are presented with words represented by the same sequence of tile inputs.}
   ~\label{fig:multiword}
 \end{figure}
-
-\subsection{A Hybrid Keyboard}
-
-While the directional approach is faster, it lacks the precision necessary for entering numbers, punctuations, or words not in the dictionary, such as user names, passwords, and URLs.   Our solution is to use the relative-vector technique as a backup for the direction-based keyboard.  Since both these techniques have the same keyboard layout, the user simply can mix these two entry techniques easily.  Our keyboard automatically detects the user's intention based on the speed with which the keys are entered. 
-
-In addition, we introduce a few shortcuts for the frequently used ``delete'' and ``space'' keys.   Users can double tap the touch screen to indicate delete.  For the space key, the user can click a specific physical button on the controller, such as the ``trigger'' button on the bottom side of the Vive controller.  We have also experimented automatically inserting a space after a certain timeout period between 150 and 500 ms.  However, we found that users preferred to have the control of when to insert the space themselves.   
 
 \begin{figure}
   \centering
@@ -113,6 +100,19 @@ In addition, we introduce a few shortcuts for the frequently used ``delete'' and
 ~\label{fig:example}
 
 \end{figure}
+
+
+We use a Bayesian word recommender to infer the most probable words among words that correspond to the same tile sequence.  For example, the words ``hello'' and ``jelly'' has the same representation.  
+This recommender algorithm use 2-gram and 3-gram data from Google Books Ngram Viewer\footnote{http://storage.googleapis.com/books/ngrams/books/datasetsv2.html}, part of speech frequency for English dictionary, individual word frequency for the entire English language, and produces a prediction score.
+The word with highest prediction score will be selected by default as the most probable word.  
+The whole word is presented all at once, instead of a letter at a time, and the user is given the option to choose a less probable word among the possibilities, as shown in Figure~\ref{fig:multiword}.  
+
+
+\subsection{A Hybrid Keyboard}
+
+While the directional approach is faster, it lacks the precision necessary for entering numbers, punctuations, or words not in the dictionary, such as user names, passwords, and URLs.   Our solution is to use the relative-vector technique as a backup for the direction-based keyboard.  Since both these techniques have the same keyboard layout, the user simply can mix these two entry techniques easily.  Our keyboard automatically detects the user's intention based on the speed with which the keys are entered. 
+
+In addition, we introduce a few shortcuts for the frequently used ``delete'' and ``space'' keys.   Users can double tap the touch screen to indicate delete.  For the space key, the user can click a specific physical button on the controller, such as the ``trigger'' button on the bottom side of the Vive controller.  We have also experimented automatically inserting a space after a certain timeout period between 150 and 500 ms.  However, we found that users preferred to have the control of when to insert the space themselves.   
 
 
 
